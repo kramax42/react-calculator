@@ -18,8 +18,20 @@ export const DisplayStyled = styled.div`
     max-width: 38vw;
   }
 
+  @media (max-width: ${breakPoints.tablet}) {
+    max-width: 70vw;
+  }
+
   @media (max-width: ${breakPoints.mobileL}) {
-    max-width: 88vw;
+    max-width: 84vw;
+  }
+
+  @media (max-width: ${breakPoints.mobileM}) {
+    max-width: 75vw;
+  }
+
+  @media (max-width: ${breakPoints.mobileS}) {
+    max-width: 66vw;
   }
 `;
 

@@ -13,7 +13,7 @@ export default createGlobalStyle`
     }
     &::-webkit-scrollbar-thumb {
       background-color: ${({ theme }) => theme.scrollbarThumbBackground};
-      border: ${({ theme }) => theme.spacer * .5}px solid transparent;
+      border: ${({ theme }) => theme.spacer * 0.5}px solid transparent;
       background-clip: content-box;
     }
 
