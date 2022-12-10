@@ -16,6 +16,10 @@ export default createGlobalStyle`
       border: ${({ theme }) => theme.spacer * .5}px solid transparent;
       background-clip: content-box;
     }
+
+    ::-webkit-scrollbar-corner {
+      background: ${({ theme }) => theme.scrollbarBackground};
+    }
   }
 
   html, body, #root {
