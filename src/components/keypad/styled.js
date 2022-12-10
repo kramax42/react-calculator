@@ -10,12 +10,17 @@ export const GridKeypad = styled.div`
     "dot         mul     one          two     three         clean"
     "mod         div     leftBracket  zero    rightBracket  equals";
 
-  grid-template-rows: repeat(4, minmax(${({ theme }) => theme.keypadButtonWidth}px, 8vw));
-  grid-template-columns: repeat(6, minmax(${({ theme }) => theme.keypadButtonWidth}px, 24vw));
+  grid-template-rows: repeat(4, minmax(${({ theme }) => theme.keypadButtonWidth}px, 10vw));
+  grid-template-columns: repeat(6, minmax(${({ theme }) => theme.keypadButtonWidth}px, 10vw));
   margin-top: ${({ theme }) => theme.spacer * 1}px;
   grid-gap: ${({ theme }) => theme.borderWidth}px;
 
   @media (max-width: ${breakPoints.laptopL}) {
+    grid-template-rows: repeat(4, minmax(${({ theme }) => theme.keypadButtonWidth * 0.8}px, 7.5vw));
+    grid-template-columns: repeat(6, minmax(${({ theme }) => theme.keypadButtonWidth * 0.8}px, 7.5vw));
+  }
+
+  @media (max-width: ${breakPoints.laptop}) {
     grid-template-areas:
     "plus   seven        eight   nine          backSpace"
     "minus  four         five    six           cleanEntry"
@@ -23,11 +28,6 @@ export const GridKeypad = styled.div`
     "div    leftBracket  zero    rightBracket  equals"
     "power  changeSign   dot     mod           equals";
 
-    grid-template-rows: repeat(5, minmax(${({ theme }) => theme.keypadButtonWidth * 0.6}px, 8vw));
-    grid-template-columns: repeat(5, minmax(${({ theme }) => theme.keypadButtonWidth * 0.6}px, 8vw));
-  }
-
-  @media (max-width: ${breakPoints.laptop}) {
     grid-template-rows: repeat(5, minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 7.5vw));
     grid-template-columns: repeat(5, minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 7.5vw));
   }

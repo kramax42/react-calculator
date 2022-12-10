@@ -28,7 +28,8 @@ const Root = () => {
       <ThemeProvider
         theme={{
           ...theme,
-          ...themes[currentTheme]
+          ...themes[currentTheme],
+          currentTheme,
         }}>
         <BrowserRouter>
           <App />

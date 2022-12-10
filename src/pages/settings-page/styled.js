@@ -14,10 +14,6 @@ export const Option = styled.option`
  border: ${({ theme }) => theme.borderWidth}px solid ${({ theme }) => theme.borderColor};
  background-color: ${({ theme }) => theme.headerBackgroundColor};
  color: ${({ theme }) => theme.headerTextColor};
- &:focus {
-    color: ${({ theme }) => theme.headerBackgroundColor};
-     background-color: ${({ theme }) => theme.colors.headerTextColor};
-  }
 `;
 
 export const Select = styled.select`
@@ -27,7 +23,7 @@ export const Select = styled.select`
   padding: ${({ theme }) => theme.spacer * 2}px;
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSizes.md}px;
-  border: ${({ theme }) => theme.borderWidth}px solid ${({ theme }) => theme.borderColor};
+  border: ${({ theme }) => theme.currentTheme == 'dark' ? theme.borderWidth : 0}px solid ${({ theme }) => theme.borderColor};
   background-color: ${({ theme }) => theme.headerBackgroundColor};
   color: ${({ theme }) => theme.headerTextColor};
   text-align: center;
