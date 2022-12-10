@@ -2,11 +2,10 @@ import styled from 'styled-components';
 import { breakPoints } from '@styles/themes';
 
 export const HistoryWrapper = styled.div`
-  overflow-y: auto;
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 60vh;
+  min-height: 50vh;
   max-height: 100%;
   padding: ${({ theme }) => theme.spacer * 2}px;
   padding-left: 0;
@@ -26,6 +25,7 @@ export const HistoryTitle = styled.p`
 `;
 
 export const HistoryItems = styled.div`
+  overflow-y: auto;
   font-size: ${({ theme }) => theme.fontSizes.md}px;
   color: ${({ theme }) => theme.textSecondaryColor};
   font-weight: ${({ theme }) => theme.fontWeights.thin};

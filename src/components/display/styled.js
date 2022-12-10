@@ -11,15 +11,15 @@ export const Entry = styled.div`
 `;
 
 export const DisplayStyled = styled.div`
-  max-width: 50vw;
+  max-width: 48vw;
   word-wrap: normal;
 
   @media (max-width: ${breakPoints.laptop}) {
-    max-width: 35vw;
+    max-width: 38vw;
   }
 
   @media (max-width: ${breakPoints.mobileL}) {
-    max-width: 90vw;
+    max-width: 88vw;
   }
 `;
 
