@@ -8,12 +8,15 @@ export default createGlobalStyle`
 
     scrollbar-color: ${({ theme }) => theme.scrollbarBackground};
     scrollbar-width: thin;
-    &::-webkit-scrollbar {
+
+    ::-webkit-scrollbar {
       background: ${({ theme }) => theme.scrollbarBackground};
+      border: ${({ theme }) => theme.spacer * 0.3}px solid ${({ theme }) => theme.background};
     }
-    &::-webkit-scrollbar-thumb {
+
+    ::-webkit-scrollbar-thumb {
       background-color: ${({ theme }) => theme.scrollbarThumbBackground};
-      border: ${({ theme }) => theme.spacer * 0.5}px solid transparent;
+      border: ${({ theme }) => theme.spacer * 0.8}px solid transparent;
       background-clip: content-box;
     }
 
