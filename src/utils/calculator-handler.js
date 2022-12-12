@@ -1,6 +1,5 @@
-import { calculateExpression } from '@utils/expression-parser.mjs';
-import { CALCULATOR_BUTTONS } from "@constants/calculator";
-import { KEYPAD_OPERATORS } from "@constants/calculator";
+import { calculateExpression } from '@utils/expression-parser';
+import { CALCULATOR_BUTTONS, KEYPAD_OPERATORS } from "@constants/calculator";
 
 const operators = Object.values(KEYPAD_OPERATORS).join('');
 const maxEntryLength = 14;
@@ -53,7 +52,7 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
         },
         [CALCULATOR_BUTTONS.rightBracket]: (keypadValue) => {
             // When last expression char is also right bracket.
-            if (expression.at(-1) === CALCULATOR_BUTTONS.rightBracket ){
+            if (expression.at(-1) === CALCULATOR_BUTTONS.rightBracket) {
                 newState.expression = (expression + keypadValue);
             } else {
                 newState.expression = (expression + Number(entry) + keypadValue);

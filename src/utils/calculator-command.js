@@ -50,9 +50,9 @@ export class DivideCommand extends CalculatorCommand {
 
 export class PowerCommand extends CalculatorCommand {
     execute() {
-        if(Number.isInteger(this.leftOperand) && Number.isInteger(this.rightOperand)) {
-            return Number(BigInt(this.leftOperand) ** BigInt(this.rightOperand));
-        }
+        // if (Number.isInteger(this.leftOperand) && Number.isInteger(this.rightOperand)) {
+        //     return Number(BigInt(this.leftOperand) ** BigInt(this.rightOperand));
+        // }
         return this.leftOperand ** this.rightOperand;
     }
 }

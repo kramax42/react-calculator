@@ -6,7 +6,7 @@ import {
     SubtractCommand,
     DivideCommand,
     MultiplyCommand
-} from './calculator-command.mjs';
+} from '@utils/calculator-command';
 import { KEYPAD_OPERATORS as OPERATORS } from "@constants/calculator"
 
 export const parseExpression = (expr, calculator) => {
