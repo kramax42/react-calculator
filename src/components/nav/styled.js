@@ -45,6 +45,27 @@ export const NavLinkStyled = styled(NavLink)`
   color: ${({ theme }) => theme.headerTextColor};
   opacity: ${({ isActive }) => isActive ? 1 : 0.7};
 
+   position: relative;
+
+   &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: ${({ theme }) => theme.borderWidth * 2}px;
+    background-color: ${({ theme }) => theme.headerTextColor};
+    opacity: ${({ isActive }) => isActive ? 1 : 0.7};
+    bottom: ${({ theme }) => theme.borderWidth * -6}px;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+
+  &:hover::before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+
   &:active,
   &:hover,
   &:focus {
