@@ -21,7 +21,7 @@ export default createGlobalStyle`
     }
 
     ::-webkit-scrollbar-corner {
-      background: ${({ theme }) => theme.scrollbarBackground};
+      background: ${({ theme }) => theme.background};
     }
   }
 

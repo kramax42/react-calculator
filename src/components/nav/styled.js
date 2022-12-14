@@ -40,14 +40,13 @@ export const NavStyled = styled.ul`
 `;
 
 export const NavLinkStyled = styled(NavLink)`
+  position: relative;
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
   color: ${({ theme }) => theme.headerTextColor};
   opacity: ${({ isActive }) => isActive ? 1 : 0.7};
 
-   position: relative;
-
-   &::before {
+  &::before {
     content: '';
     position: absolute;
     width: 100%;
