@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { clearHistory, toggleHistoryVisibility } from '@store/reducers/calculator.reducer';
+import { clearHistory, toggleHistoryVisibility, cl } from '@store/reducers/calculator.reducer';
 import { Button } from "@components/button/ButtonFC";
 import { ControlPanelStyled, Title } from '../styled';
 

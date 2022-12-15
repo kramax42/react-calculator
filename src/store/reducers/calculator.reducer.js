@@ -17,6 +17,8 @@ export const calculatorSlice = createSlice({
         },
         clearHistory: (state) => {
             state.history = [];
+            state.expression = '';
+            state.entry = '';
         },
         toggleHistoryVisibility: (state) => {
             state.isHistoryVisible = !state.isHistoryVisible;
@@ -26,7 +28,7 @@ export const calculatorSlice = createSlice({
                 newHistoryItems,
                 entry: newEntry,
                 expression: newExpression
-             } = calculatorHandler({
+            } = calculatorHandler({
                 entry: current(state).entry,
                 expression: current(state).expression,
                 keypadValue: action.payload.keypadValue
