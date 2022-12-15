@@ -13,14 +13,6 @@ import App from './components/App';
 const container = document.getElementById('root');
 const root = createRoot(container);
 
-const StoreWrapper = ({ children }) => {
-  return (
-    <Provider store={store}>
-      {children}
-    </Provider>
-  );
-}
-
 const Root = () => {
   const { theme: currentTheme } = useSelector((state) => state.theme);
   return (
@@ -42,9 +34,9 @@ const Root = () => {
 
 root.render(
   <React.StrictMode>
-    <StoreWrapper>
+    <Provider store={store}>
       <Root />
-    </StoreWrapper>
+    </Provider>
   </React.StrictMode>
 );
 
