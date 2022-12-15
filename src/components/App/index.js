@@ -6,20 +6,24 @@ import {
   HOME_PAGE_ROUTE_CC,
   SETTINGS_PAGE_ROUTE_CC,
 } from '@constants/routes';
-import  { Loader } from '@components/loader/LoaderCC';
-const HomePageFC = lazy(() => import('@pages/home-page/HomePageFC'));
-const HomePageCC = lazy(() => import('@pages/home-page/HomePageCC'));
-const SettingsPageFC = lazy(() => import('@/pages/settings-page/SettingsPageFC'));
-const SettingsPageCC = lazy(() => import('@/pages/settings-page/SettingsPageCC'));
+import { Loader } from '@components/loader/LoaderCC';
+
+const routes = [
+  { path: HOME_PAGE_ROUTE_FC, page: lazy(() => import('@pages/home-page/HomePageFC')) },
+  { path: HOME_PAGE_ROUTE_CC, page: lazy(() => import('@pages/home-page/HomePageCC')) },
+  { path: SETTINGS_PAGE_ROUTE_FC, page: lazy(() => import('@pages/settings-page/SettingsPageFC')) },
+  { path: SETTINGS_PAGE_ROUTE_CC, page: lazy(() => import('@pages/settings-page/SettingsPageCC')) },
+]
 
 function App() {
   return (
     <Suspense fallback={<Loader />}>
       <Routes>
-        <Route exact path={HOME_PAGE_ROUTE_FC} element={<HomePageFC />} />
-        <Route exact path={SETTINGS_PAGE_ROUTE_FC} element={<SettingsPageFC />} />
-        <Route exact path={HOME_PAGE_ROUTE_CC} element={<HomePageCC />} />
-        <Route exact path={SETTINGS_PAGE_ROUTE_CC} element={<SettingsPageCC />} />
+        {routes.map(({ path, page: Page }) => {
+          return (
+            <Route exact key={path} path={path} element={<Page />} />
+          )
+        })}
       </Routes>
     </Suspense>
   );
