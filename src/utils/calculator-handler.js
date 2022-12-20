@@ -2,14 +2,22 @@ import { calculateExpression } from '@utils/expression-parser';
 import { CALCULATOR_BUTTONS, KEYPAD_OPERATORS } from "@constants/calculator";
 
 const operators = Object.values(KEYPAD_OPERATORS).join('');
-const maxEntryLength = 14;
+const maxEntryLength = 16;
+
+const toFullWideNumberString = (str) => {
+    return Number(str).toLocaleString('en-US', { useGrouping: false });
+}
 
 export const calculatorHandler = ({ keypadValue, entry, expression }) => {
-    const newState = { entry, expression, newHistoryItems: [] }
+    const newState = {
+        entry,
+        expression,
+        newHistoryItems: []
+    }
     const calculatorOperations = {
         [CALCULATOR_BUTTONS.equals]: () => {
             // Using cast entry to number for converting .3 to 0.3
-            const newExpression = expression + (entry !== '' ? Number(entry).toString() : '');
+            const newExpression = expression + (entry !== '' ? toFullWideNumberString(entry) : '');
             const newResult = calculateExpression(newExpression);
 
             // Add to history only definite values.
@@ -20,7 +28,7 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
                 newState.newHistoryItems.push({ calculatedExpression: `${newExpression} = ${newResult}` });
             }
             newState.expression = '';
-            newState.entry = newResult;
+            newState.entry = toFullWideNumberString(newResult);
         },
         [CALCULATOR_BUTTONS.clean]: () => {
             newState.expression = '';
@@ -87,13 +95,13 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
                     }
                 } else {
                     if (entry) {
-                        newState.expression = (expression + Number(entry) + keypadValue);
+                        newState.expression = (expression + toFullWideNumberString(entry) + keypadValue);
                     } else {
                         newState.expression = (expression + entry + keypadValue);
                     }
                 }
 
-            newState.entry = ('');
+            newState.entry = '';
         },
     }
 
@@ -119,5 +127,5 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
         }
     }
 
-    return newState
+    return newState;
 }
