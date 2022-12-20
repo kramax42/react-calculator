@@ -8,11 +8,9 @@ class BurgerMenuCC extends Component {
         this.state = {
             isOpen: false
         }
-
-        this.onClickHandler = this.onClickHandler.bind(this);
     }
 
-    onClickHandler() {
+    onClickHandler = () => {
         this.setState(state => ({ ...state, isOpen: !state.isOpen }));
     }
 

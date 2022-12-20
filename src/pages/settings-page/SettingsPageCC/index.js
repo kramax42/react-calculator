@@ -17,11 +17,6 @@ import {
 import { themes } from '@constants/themes';
 
 class SettingsPage extends Component {
-    constructor(props) {
-        super(props);
-        this.handleChangeTheme = this.handleChangeTheme.bind(this);
-        this.handleClearHistory = this.handleClearHistory.bind(this);
-    }
 
     handleChangeTheme = (event) => {
         const newTheme = event.target.value;
