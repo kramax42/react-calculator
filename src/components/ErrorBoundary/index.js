@@ -1,9 +1,10 @@
-import React from "react";
+import React from 'react';
+
 import { ErrorBoundaryStyled } from './styled';
 
 // Component for testing Error Boundary
 export function ThrowErrorComponent({ error }) {
-  throw new Error(error || '💥 BOOM-KABOOM 💥')
+  throw new Error(error || '💥 BOOM-KABOOM 💥');
 }
 
 export class ErrorBoundary extends React.Component {
@@ -11,15 +12,15 @@ export class ErrorBoundary extends React.Component {
     super(props);
     this.state = {
       error: null,
-      errorInfo: null
+      errorInfo: null,
     };
   }
 
   componentDidCatch(error, errorInfo) {
     this.setState({
       error,
-      errorInfo
-    })
+      errorInfo,
+    });
   }
 
   render() {

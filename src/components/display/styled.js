@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { breakPoints } from '@styles/themes';
+import styled from 'styled-components';
 
 export const Entry = styled.div`
   overflow-x: auto;

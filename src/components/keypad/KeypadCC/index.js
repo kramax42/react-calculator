@@ -1,9 +1,10 @@
 import React, { Component, memo } from 'react';
-import PropTypes from 'prop-types';
-import { KeypadButton, GridKeypad } from '../styled';
-import { CALCULATOR_BUTTONS } from "@constants/calculator"
-import { updateCalculatorValues } from '@store/reducers/calculator.reducer';
 import { connect } from 'react-redux';
+import { CALCULATOR_BUTTONS } from '@constants/calculator';
+import { updateCalculatorValues } from '@store/reducers/calculator.reducer';
+import PropTypes from 'prop-types';
+
+import { GridKeypad, KeypadButton } from '../styled';
 
 class KeypadCC extends Component {
   render() {
@@ -15,7 +16,9 @@ class KeypadCC extends Component {
             <KeypadButton
               key={keypadValue}
               data-keypad-value={keypadValue}
-              onClick={handleKeypadButton(Object.values(CALCULATOR_BUTTONS)[index])}>
+              onClick={handleKeypadButton(
+                Object.values(CALCULATOR_BUTTONS)[index],
+              )}>
               {CALCULATOR_BUTTONS[keypadValue]}
             </KeypadButton>
           );
@@ -23,19 +26,18 @@ class KeypadCC extends Component {
       </GridKeypad>
     );
   }
-};
+}
 
 KeypadCC.propTypes = {
-  handleKeypadButton: PropTypes.func
-}
+  handleKeypadButton: PropTypes.func,
+};
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
     handleKeypadButton: (keypadValue) => () => {
-      dispatch(updateCalculatorValues({ keypadValue }))
-    }
-  }
-}
+      dispatch(updateCalculatorValues({ keypadValue }));
+    },
+  };
+};
 
 export const Keypad = memo(connect(null, mapDispatchToProps)(KeypadCC));
-

@@ -11,7 +11,8 @@ export default createGlobalStyle`
 
     ::-webkit-scrollbar {
       background: ${({ theme }) => theme.scrollbarBackground};
-      border: ${({ theme }) => theme.spacer * 0.3}px solid ${({ theme }) => theme.background};
+      border: ${({ theme }) => theme.spacer * 0.3}px solid ${({ theme }) =>
+  theme.background};
     }
 
     ::-webkit-scrollbar-thumb {

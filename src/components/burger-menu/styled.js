@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { breakPoints } from '@styles/themes';
+import styled from 'styled-components';
 
 export const BurgerStyled = styled.div`
   display: none;
@@ -21,14 +21,15 @@ export const BurgerStyled = styled.div`
     transform-origin: 1px;
     transition: all 0.3s linear;
     &:nth-child(1) {
-      transform: ${({ isOpen }) => isOpen ? 'rotate(45deg)' : 'rotate(0)'};
+      transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg)' : 'rotate(0)')};
     }
     &:nth-child(2) {
-      transform: ${({ isOpen }) => isOpen ? 'translateX(100%)' : 'translateX(0)'};
-      opacity: ${({ isOpen }) => isOpen ? 0 : 1};
+      transform: ${({ isOpen }) =>
+        isOpen ? 'translateX(100%)' : 'translateX(0)'};
+      opacity: ${({ isOpen }) => (isOpen ? 0 : 1)};
     }
     &:nth-child(3) {
-      transform: ${({ isOpen }) => isOpen ? 'rotate(-45deg)' : 'rotate(0)'};
+      transform: ${({ isOpen }) => (isOpen ? 'rotate(-45deg)' : 'rotate(0)')};
     }
   }
 `;

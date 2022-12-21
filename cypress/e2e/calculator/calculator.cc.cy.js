@@ -4,12 +4,14 @@ import { expressions, expressionsSequence } from './expressions';
 
 describe('Home page CC e2e', () => {
   it('keypad buttons should exist', () => {
-    cy.visit('/home-cc')
-    Object.keys(CALCULATOR_BUTTONS).map(keypadKey => {
-      cy.get(`button[data-keypad-value="${keypadKey}"]`)
-        .should('have.text', CALCULATOR_BUTTONS[keypadKey])
-    })
-  })
+    cy.visit('/home-cc');
+    Object.keys(CALCULATOR_BUTTONS).map((keypadKey) => {
+      cy.get(`button[data-keypad-value="${keypadKey}"]`).should(
+        'have.text',
+        CALCULATOR_BUTTONS[keypadKey],
+      );
+    });
+  });
 
   it('display component should contain correct value after click on keypad buttons', () => {
     let expectedDisplayValue = '';
@@ -20,7 +22,7 @@ describe('Home page CC e2e', () => {
     }
 
     cy.get('#entryDisplay').contains(expectedDisplayValue);
-  })
+  });
 
   context('calculator functionality and history', () => {
     it('entry should display correct number after calculation', () => {
@@ -35,38 +37,36 @@ describe('Home page CC e2e', () => {
 
         cy.get('#entryDisplay').contains(equals);
       }
-    })
+    });
 
     it('history should contain correct values', () => {
       for (let i = 0; i < expressions.length; ++i) {
         const { expression, equals } = expressions[i];
         const expectedHistoryItem = `${i + 1}) ${expression} = ${equals}`;
 
-        cy.get(`div[data-history-item-index="${i}"]`)
-          .should('have.text', expectedHistoryItem);
+        cy.get(`div[data-history-item-index="${i}"]`).should(
+          'have.text',
+          expectedHistoryItem,
+        );
       }
-    })
+    });
 
     it('history should be empty after click on Clear History button', () => {
       cy.get('#emptyHistoryText').should('not.exist');
       cy.get('#clearHistory').click();
-      cy.get('#emptyHistoryText').should('have.text', 'History is empty')
-    })
+      cy.get('#emptyHistoryText').should('have.text', 'History is empty');
+    });
 
     it('history should be able to toggle visibility', () => {
-      cy.get('#historyTitle')
-        .should('exist')
-        .should('have.text', 'History');
+      cy.get('#historyTitle').should('exist').should('have.text', 'History');
 
       cy.get('#toggleHistoryVisibility')
         // .should('have.text', 'Hide History')
-        .click()
+        .click();
       // .should('have.text', 'Show History');
 
-      cy.get('#historyTitle')
-        .should('not.exist');
-    })
-
+      cy.get('#historyTitle').should('not.exist');
+    });
 
     // Expressions for test what contains entry
     // when last entry value = Infinity
@@ -89,7 +89,6 @@ describe('Home page CC e2e', () => {
 
         cy.get('#entryDisplay').contains(equals);
       }
-    })
-  })
-})
-
+    });
+  });
+});

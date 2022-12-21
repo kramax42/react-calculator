@@ -10,20 +10,23 @@ export const SettingsWrapper = styled.div`
 `;
 
 export const Option = styled.option`
- font-size: ${({ theme }) => theme.fontSizes.md}px;
- border: ${({ theme }) => theme.borderWidth}px solid ${({ theme }) => theme.borderColor};
- background-color: ${({ theme }) => theme.headerBackgroundColor};
- color: ${({ theme }) => theme.headerTextColor};
+  font-size: ${({ theme }) => theme.fontSizes.md}px;
+  border: ${({ theme }) => theme.borderWidth}px solid
+    ${({ theme }) => theme.borderColor};
+  background-color: ${({ theme }) => theme.headerBackgroundColor};
+  color: ${({ theme }) => theme.headerTextColor};
 `;
 
 export const Select = styled.select`
-  width:  ${({ theme }) => theme.spacer * 30}px;
+  width: ${({ theme }) => theme.spacer * 30}px;
   height: ${({ theme }) => theme.spacer * 9}px;
   margin-bottom: ${({ theme }) => theme.spacer * 2}px;
   padding: ${({ theme }) => theme.spacer * 2}px;
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSizes.md}px;
-  border: ${({ theme }) => theme.currentTheme == 'dark' ? theme.borderWidth : 0}px solid ${({ theme }) => theme.borderColor};
+  border: ${({ theme }) =>
+      theme.currentTheme == 'dark' ? theme.borderWidth : 0}px
+    solid ${({ theme }) => theme.borderColor};
   background-color: ${({ theme }) => theme.headerBackgroundColor};
   color: ${({ theme }) => theme.headerTextColor};
   text-align: center;

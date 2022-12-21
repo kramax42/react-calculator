@@ -1,6 +1,6 @@
-import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { breakPoints } from '@styles/themes';
+import styled from 'styled-components';
 
 export const NavLi = styled.li`
   margin-left: ${({ theme }) => theme.spacer * 2}px;
@@ -19,12 +19,14 @@ export const NavStyled = styled.ul`
   flex-flow: row nowrap;
   list-style: none;
   li {
-    padding: ${({ theme }) => theme.spacer * 2}px ${({ theme }) => theme.spacer * 1}px;
+    padding: ${({ theme }) => theme.spacer * 2}px
+      ${({ theme }) => theme.spacer * 1}px;
   }
   @media (max-width: ${breakPoints.laptop}) {
     flex-flow: column nowrap;
     position: fixed;
-    transform: ${({ isOpen }) => isOpen ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ isOpen }) =>
+      isOpen ? 'translateX(0)' : 'translateX(100%)'};
     top: 0;
     right: 0;
     height: 100vh;
@@ -44,7 +46,7 @@ export const NavLinkStyled = styled(NavLink)`
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
   color: ${({ theme }) => theme.headerTextColor};
-  opacity: ${({ isActive }) => isActive ? 1 : 0.7};
+  opacity: ${({ isActive }) => (isActive ? 1 : 0.7)};
 
   &::before {
     content: '';
@@ -52,12 +54,12 @@ export const NavLinkStyled = styled(NavLink)`
     width: 100%;
     height: ${({ theme }) => theme.borderWidth * 2}px;
     background-color: ${({ theme }) => theme.headerTextColor};
-    opacity: ${({ isActive }) => isActive ? 1 : 0.7};
+    opacity: ${({ isActive }) => (isActive ? 1 : 0.7)};
     bottom: ${({ theme }) => theme.borderWidth * -6}px;
     left: 0;
     transform-origin: right;
     transform: scaleX(0);
-    transition: transform .3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
   }
 
   &:hover::before {

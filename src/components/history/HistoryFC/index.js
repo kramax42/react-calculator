@@ -1,32 +1,39 @@
 import React, { memo } from 'react';
-import { HistoryItems, HistoryWrapper, HistoryTitle, HistoryItem } from '../styled';
 import { useSelector } from 'react-redux';
 
-const HistoryFC = () => {
-    const history = useSelector((state) => state.calculator.history);
-    const isHistoryVisible = useSelector((state) => state.calculator.isHistoryVisible);
+import {
+  HistoryItem,
+  HistoryItems,
+  HistoryTitle,
+  HistoryWrapper,
+} from '../styled';
 
-    if (!isHistoryVisible) {
-        return null;
-    }
+function HistoryFC() {
+  const history = useSelector((state) => state.calculator.history);
+  const isHistoryVisible = useSelector(
+    (state) => state.calculator.isHistoryVisible,
+  );
 
-    return (
-        <HistoryWrapper open={true}>
-            <HistoryTitle id='historyTitle'>History</HistoryTitle>
-            <HistoryItems>
-                {history.length
-                    ? history.map(({ calculatedExpression }, index) => (
-                        <HistoryItem
-                            data-history-item-index={index}
-                            key={index}>
-                            {`${index + 1}) ${calculatedExpression}`}
-                        </HistoryItem>
-                    ))
-                    : <span id="emptyHistoryText">History is empty</span>
-                }
-            </HistoryItems>
-        </HistoryWrapper>
-    )
+  if (!isHistoryVisible) {
+    return null;
+  }
+
+  return (
+    <HistoryWrapper open>
+      <HistoryTitle id="historyTitle">History</HistoryTitle>
+      <HistoryItems>
+        {history.length ? (
+          history.map(({ calculatedExpression }, index) => (
+            <HistoryItem data-history-item-index={index} key={index}>
+              {`${index + 1}) ${calculatedExpression}`}
+            </HistoryItem>
+          ))
+        ) : (
+          <span id="emptyHistoryText">History is empty</span>
+        )}
+      </HistoryItems>
+    </HistoryWrapper>
+  );
 }
 
 export const History = memo(HistoryFC);

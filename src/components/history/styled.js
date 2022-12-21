@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { breakPoints } from '@styles/themes';
+import styled from 'styled-components';
 
 export const HistoryWrapper = styled.div`
   display: flex;
@@ -37,5 +37,5 @@ export const HistoryItem = styled.div`
   word-wrap: break-all;
   @media (max-width: ${breakPoints.laptop}) {
     max-width: 80vw;
-   }
+  }
 `;

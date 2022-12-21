@@ -5,7 +5,8 @@
     "jest": true
   },
   "extends": [
-    "eslint:recommended",
+    "airbnb",
+    // "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:cypress/recommended"
@@ -17,11 +18,54 @@
     "ecmaVersion": 13,
     "sourceType": "module"
   },
-  "plugins": ["react"],
-  "rules": { },
+  "plugins": ["react", "simple-import-sort"],
+  "rules": {
+    "import/prefer-default-export": "off",
+    "import/no-unresolved": "off",
+    // "import/extensions": [
+    //   "error",
+    //   "always",
+    //   {
+    //     "js": "never"
+    //   }
+    // ]
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^@?\\w"],
+          ["^(@|components)(/.*|$)"],
+          ["^\\u0000"],
+          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+          ["^.+\\.?(css)$"]
+        ]
+      }
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "import/order": [
+      0,
+      {
+        "groups": [
+          "external",
+          "builtin",
+          "internal",
+          "sibling",
+          "parent",
+          "index"
+        ]
+      }
+    ]
+  },
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
     }
   }
 }

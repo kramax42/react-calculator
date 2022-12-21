@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { BurgerMenu } from '@components/burger-menu/BurgerMenuCC'
-import {
-  HeaderLogo,
-  HeaderStyled,
-} from '../styled';
+import { BurgerMenu } from '@components/burger-menu/BurgerMenuCC';
+
+import { HeaderLogo, HeaderStyled } from '../styled';
 
 class HeaderCC extends Component {
   render() {
@@ -14,6 +12,6 @@ class HeaderCC extends Component {
       </HeaderStyled>
     );
   }
-};
+}
 
 export const Header = HeaderCC;
