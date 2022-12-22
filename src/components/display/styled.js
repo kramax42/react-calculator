@@ -11,31 +11,31 @@ export const Entry = styled.div`
 `;
 
 export const DisplayStyled = styled.div`
-  max-width: 40vw;
+  max-width: 600px;
   word-wrap: normal;
 
   @media (max-width: ${breakPoints.laptopL}) {
-    max-width: 38vw;
+    max-width: 400px;
   }
 
   @media (max-width: ${breakPoints.laptop}) {
-    max-width: 28vw;
+    max-width: 280px;
   }
 
   @media (max-width: ${breakPoints.tablet}) {
-    max-width: 54vw;
+    max-width: 340px;
   }
 
   @media (max-width: ${breakPoints.mobileL}) {
-    max-width: 84vw;
+    max-width: 240px;
   }
 
   @media (max-width: ${breakPoints.mobileM}) {
-    max-width: 75vw;
+    max-width: 240px;
   }
 
   @media (max-width: ${breakPoints.mobileS}) {
-    max-width: 66vw;
+    max-width: 220px;
   }
 `;
 

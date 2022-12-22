@@ -22,6 +22,7 @@ export const Column = styled.div`
   padding: ${({ theme }) => theme.spacer * 2}px;
 `;
 
+
 export const CalculatorColumn = styled(Column)`
   width: min-content;
   min-height: calc(100vh - ${({ theme }) => theme.headerHeight * 1.3}px);
@@ -39,7 +40,7 @@ export const CalculatorColumn = styled(Column)`
 
 export const HistoryColumn = styled(Column)`
   height: 100%;
-  max-height: 70vh;
+  max-height: 550px;
 
   & > div {
     @media (max-width: ${breakPoints.laptop}) {
@@ -49,6 +50,6 @@ export const HistoryColumn = styled(Column)`
   }
 
   @media (max-width: ${breakPoints.laptop}) {
-    max-height: 100vh;
+    max-height: 600px;
   }
 `;

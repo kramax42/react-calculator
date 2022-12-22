@@ -5,7 +5,7 @@ export const HistoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 50vh;
+  min-height: 350px;
   max-height: 100%;
   padding: ${({ theme }) => theme.spacer * 2}px;
   padding-left: 0;
@@ -33,9 +33,9 @@ export const HistoryItems = styled.div`
 
 export const HistoryItem = styled.div`
   margin-top: ${({ theme }) => theme.spacer * 1}px;
-  max-width: 35vw;
+  max-width: 220px;
   word-wrap: break-all;
   @media (max-width: ${breakPoints.laptop}) {
-    max-width: 80vw;
+    max-width: 300px;
   }
 `;
