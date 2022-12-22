@@ -26,7 +26,7 @@ export const parseExpression = (expr, calculator) => {
       get(str);
       return -1 * factor(str);
     }
-    if (!isNaN(peek(str))) {
+    if (!Number.isNaN(peek(str))) {
       return makeNumber(str);
     }
     if (peek(str) === OPERATORS.leftBracket) {
@@ -75,7 +75,6 @@ export const parseExpression = (expr, calculator) => {
   };
 
   const expressionToParse = expr.replace(/\s+/g, '').split('');
-  // return [expression(expressionToParse), calculator];
   return expression(expressionToParse);
 };
 

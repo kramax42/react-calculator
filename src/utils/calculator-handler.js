@@ -5,7 +5,10 @@ const operators = Object.values(KEYPAD_OPERATORS).join('');
 const maxEntryLength = 16;
 
 const toFullWideNumberString = (str) => {
-  return Number(str).toLocaleString('en-US', { useGrouping: false });
+  const num = Number(str);
+  return num !== Infinity && num !== -Infinity
+    ? num.toLocaleString('en-US', { useGrouping: false })
+    : String(num);
 };
 
 export const calculatorHandler = ({ keypadValue, entry, expression }) => {
@@ -18,16 +21,20 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
     [CALCULATOR_BUTTONS.equals]: () => {
       // Using cast entry to number for converting .3 to 0.3
       const newExpression =
-        expression + (entry !== '' ? toFullWideNumberString(entry) : '');
+        expression +
+        (entry !== '' && entry !== '0' ? toFullWideNumberString(entry) : '');
       const newResult = calculateExpression(newExpression);
 
-      // Add to history only definite values.
-      if (
-        newExpression !== '' &&
-        newExpression !== newResult &&
-        Number(newResult) !== Infinity &&
-        !Number.isNaN(Number(newResult))
-      ) {
+      const isDefiniteValues = (newExpression, newResult) => {
+        return Boolean(
+          newExpression !== '' &&
+            newExpression !== newResult &&
+            Number(newResult) !== Infinity &&
+            !Number.isNaN(Number(newResult)),
+        );
+      };
+
+      if (isDefiniteValues(newExpression, newResult)) {
         newState.newHistoryItems.push({
           calculatedExpression: `${newExpression} = ${newResult}`,
         });
@@ -43,7 +50,7 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
       newState.entry = '';
     },
     [CALCULATOR_BUTTONS.backSpace]: () => {
-      if (entry) {
+      if (entry.length) {
         newState.entry = entry.slice(0, entry.length - 1) || '';
       } else {
         newState.expression = expression.slice(0, expression.length - 1) || '';
@@ -51,7 +58,9 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
     },
     [CALCULATOR_BUTTONS.changeSign]: () => {
       if (entry) {
-        newState.entry = (Number(entry) * -1).toString();
+        newState.entry = (
+          Number(toFullWideNumberString(entry)) * -1
+        ).toString();
       }
     },
     [CALCULATOR_BUTTONS.leftBracket]: (keypadValue) => {
@@ -66,7 +75,6 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
       }
     },
     [CALCULATOR_BUTTONS.rightBracket]: (keypadValue) => {
-      // When last expression char is also right bracket.
       if (expression.at(-1) === CALCULATOR_BUTTONS.rightBracket) {
         newState.expression = expression + keypadValue;
       } else {
@@ -113,26 +121,32 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
     },
   };
 
-  // For incorrect for calculation values: such as NaN or Infinity
-  if (
-    Number(entry) === Infinity ||
-    (Number.isNaN(entry) && entry !== CALCULATOR_BUTTONS.dot)
-  ) {
+  const isIncorrectEntry = (entry) => {
+    return (
+      Number(entry) === Infinity ||
+      Number(entry) === -Infinity ||
+      (Number.isNaN(entry) && entry !== CALCULATOR_BUTTONS.dot)
+    );
+  };
+
+  const isNonMathOperation = (keypadValue) =>
+    Boolean(calculatorOperations[keypadValue]);
+
+  const isMathOperator = (keypadValue) => operators.includes(keypadValue);
+
+  if (isIncorrectEntry(entry)) {
     entry = '';
     newState.entry = '';
   }
 
-  // For opereations except math operators(+-%/*)
-  if (calculatorOperations[keypadValue]) {
+  if (isNonMathOperation(keypadValue)) {
     const calulatorOperation = calculatorOperations[keypadValue];
     calulatorOperation(keypadValue);
-  }
-  // For math operators(+-%/*) operations
-  else if (operators.includes(keypadValue)) {
+  } else if (isMathOperator(keypadValue)) {
     const operatorOperation = calculatorOperations.operator;
     operatorOperation(keypadValue);
   } else if (entry.length < maxEntryLength) {
-    newState.entry = entry + keypadValue;
+    newState.entry = (entry === '0' ? '' : entry) + keypadValue;
   }
 
   return newState;
