@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav } from '@components/nav/NavCC';
+import { Navigation } from '@components/navigation/NavigationCC';
 
 import { BurgerStyled, DownLine, MiddleLine, UpLine } from '../styled';
 
@@ -24,7 +24,7 @@ class BurgerMenuCC extends Component {
           <MiddleLine />
           <DownLine />
         </BurgerStyled>
-        <Nav isOpen={isOpen} />
+        <Navigation isOpen={isOpen} />
       </>
     );
   }

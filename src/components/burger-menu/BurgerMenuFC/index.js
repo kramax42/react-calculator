@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Nav } from '@components/nav/NavFC';
+import { Navigation } from '@components/navigation/NavigationFC';
 
 import { BurgerStyled, DownLine, MiddleLine, UpLine } from '../styled';
 
@@ -14,7 +14,7 @@ function BurgerMenuFC() {
         <MiddleLine />
         <DownLine />
       </BurgerStyled>
-      <Nav isOpen={isOpen} />
+      <Navigation isOpen={isOpen} />
     </>
   );
 }

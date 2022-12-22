@@ -2,7 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { breakPoints } from '@styles/themes';
 import styled from 'styled-components';
 
-export const NavLi = styled.li`
+export const NavigationLi = styled.li`
   margin-left: ${({ theme }) => theme.spacer * 2}px;
   list-style-type: none;
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
@@ -14,7 +14,7 @@ export const NavLi = styled.li`
   }
 `;
 
-export const NavStyled = styled.ul`
+export const NavigationStyled = styled.ul`
   display: flex;
   flex-flow: row nowrap;
   list-style: none;
@@ -41,7 +41,7 @@ export const NavStyled = styled.ul`
   }
 `;
 
-export const NavLinkStyled = styled(NavLink)`
+export const NavigationLinkStyled = styled(NavLink)`
   position: relative;
   text-decoration: none;
   font-size: ${({ theme }) => theme.fontSizes.xl}px;
