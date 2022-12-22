@@ -52,7 +52,7 @@ export const expressionsSequence = [
   {
     commands: ['6', '0', '0', '0', '^', '5', '0', '0', '0', '='],
     expression: '6000^5000',
-    equals: '∞',
+    equals: 'Infinity',
   },
   {
     commands: ['3', '+', '5', '='],

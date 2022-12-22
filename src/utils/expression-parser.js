@@ -26,7 +26,7 @@ export const parseExpression = (expr, calculator) => {
       get(str);
       return -1 * factor(str);
     }
-    if (!Number.isNaN(peek(str))) {
+    if (!isNaN(peek(str))) {
       return makeNumber(str);
     }
     if (peek(str) === OPERATORS.leftBracket) {
@@ -78,11 +78,13 @@ export const parseExpression = (expr, calculator) => {
   return expression(expressionToParse);
 };
 
+const formatNumberAsString = (num, precision) => {
+  return Number(num.toFixed(precision).toString()).toString();
+};
+
 export const calculateExpression = (expr) => {
   const calculatorInit = new Calculator(0);
   const result = parseExpression(expr, calculatorInit);
 
-  // Format result with 3 significant digits without unnecessary zeros
-  const fotmattedResult = Number(result.toFixed(3).toString()).toString();
-  return fotmattedResult;
+  return formatNumberAsString(result, 3);
 };

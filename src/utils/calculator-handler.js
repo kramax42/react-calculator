@@ -21,8 +21,7 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
     [CALCULATOR_BUTTONS.equals]: () => {
       // Using cast entry to number for converting .3 to 0.3
       const newExpression =
-        expression +
-        (entry !== '' && entry !== '0' ? toFullWideNumberString(entry) : '');
+        expression + (entry !== '' ? toFullWideNumberString(entry) : '');
       const newResult = calculateExpression(newExpression);
 
       const isDefiniteValues = (newExpression, newResult) => {
@@ -58,9 +57,7 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
     },
     [CALCULATOR_BUTTONS.changeSign]: () => {
       if (entry) {
-        newState.entry = (
-          Number(toFullWideNumberString(entry)) * -1
-        ).toString();
+        newState.entry = String(Number(toFullWideNumberString(entry)) * -1);
       }
     },
     [CALCULATOR_BUTTONS.leftBracket]: (keypadValue) => {
@@ -89,21 +86,24 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
       }
     },
     operator: (keypadValue) => {
-      // For operators that replace another last operators
-      if (
-        operators.includes(expression.at(-1)) &&
-        expression.at(-1) !== CALCULATOR_BUTTONS.leftBracket &&
-        expression.at(-1) !== CALCULATOR_BUTTONS.rightBracket &&
-        entry === ''
-      ) {
+      const isLastExpressionCharOperator = (expression, entry) => {
+        return Boolean(
+          operators.includes(expression.at(-1)) &&
+            expression.at(-1) !== CALCULATOR_BUTTONS.leftBracket &&
+            expression.at(-1) !== CALCULATOR_BUTTONS.rightBracket &&
+            entry === '',
+        );
+      };
+
+      const isLeftBracketPrecedingOperator = (expression, entry) => {
+        return Boolean(
+          expression.at(-1) === CALCULATOR_BUTTONS.leftBracket && entry === '',
+        );
+      };
+
+      if (isLastExpressionCharOperator(expression, entry)) {
         newState.expression = expression.slice(0, -1) + keypadValue;
-      }
-      // For operators after brackets
-      else if (
-        expression.at(-1) === CALCULATOR_BUTTONS.leftBracket &&
-        entry === ''
-      ) {
-        // Ignore operator after brackets, except + and -
+      } else if (isLeftBracketPrecedingOperator(expression, entry)) {
         if (
           keypadValue === CALCULATOR_BUTTONS.plus ||
           keypadValue === CALCULATOR_BUTTONS.minus
