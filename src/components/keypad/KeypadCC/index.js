@@ -1,4 +1,4 @@
-import React, { Component, memo } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { CALCULATOR_BUTTONS } from '@constants/calculator';
 import { updateCalculatorValues } from '@store/reducers/calculator.reducer';
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 import { GridKeypad, KeypadButton } from '../styled';
 
-class KeypadCC extends Component {
+class KeypadCC extends PureComponent {
   render() {
     const { handleKeypadButton } = this.props;
     return (
@@ -29,7 +29,7 @@ class KeypadCC extends Component {
 }
 
 KeypadCC.propTypes = {
-  handleKeypadButton: PropTypes.func,
+  handleKeypadButton: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -40,4 +40,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export const Keypad = memo(connect(null, mapDispatchToProps)(KeypadCC));
+export const Keypad = connect(null, mapDispatchToProps)(KeypadCC);

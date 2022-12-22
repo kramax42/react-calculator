@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 import { CALCULATOR_BUTTONS } from '@constants/calculator';
 import { updateCalculatorValues } from '@store/reducers/calculator.reducer';
@@ -29,4 +29,4 @@ function KeypadFC() {
   );
 }
 
-export const Keypad = memo(KeypadFC);
+export const Keypad = KeypadFC;

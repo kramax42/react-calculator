@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
 import { DisplayStyled, Entry, Expression } from '../styled';
 
@@ -15,15 +14,5 @@ function DisplayFC() {
     </DisplayStyled>
   );
 }
-
-DisplayFC.defaultProps = {
-  entry: '0',
-  expression: '0',
-};
-
-DisplayFC.propTypes = {
-  entry: PropTypes.string,
-  expression: PropTypes.string,
-};
 
 export const Display = DisplayFC;

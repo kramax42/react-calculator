@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import { routeLinks } from '@constants/routes';
 import PropTypes from 'prop-types';
 
-import { routeLinks } from '../links';
 import { NavLi, NavLinkStyled, NavStyled } from '../styled';
 
 class NavCC extends Component {
@@ -20,7 +20,7 @@ class NavCC extends Component {
 }
 
 NavCC.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export const Nav = NavCC;

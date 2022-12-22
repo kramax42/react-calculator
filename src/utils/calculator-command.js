@@ -1,4 +1,3 @@
-// eslint-disable-next-line max-classes-per-file
 export class Calculator {
   execute(command) {
     this.value = command.execute();
@@ -17,6 +16,7 @@ export class CalculatorCommand {
     this.rightOperand = rightOperand;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   execute() {
     throw new Error('CalculatorCommand.execute() is not implemented');
   }

@@ -1,6 +1,10 @@
 import { breakPoints } from '@styles/themes';
 import styled from 'styled-components';
 
+export const UpLine = styled.div``;
+export const MiddleLine = styled.div``;
+export const DownLine = styled.div``;
+
 export const BurgerStyled = styled.div`
   display: none;
   z-index: 20;

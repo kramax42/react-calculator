@@ -20,11 +20,13 @@ import {
 class SettingsPage extends Component {
   handleChangeTheme = (event) => {
     const newTheme = event.target.value;
-    this.props.dispatch(setTheme({ theme: newTheme }));
+    const { dispatch } = this.props;
+    dispatch(setTheme({ theme: newTheme }));
   };
 
   handleClearHistory = () => {
-    this.props.dispatch(clearHistory());
+    const { dispatch } = this.props;
+    dispatch(clearHistory());
   };
 
   render() {
@@ -62,8 +64,8 @@ const mapStateToProps = (state) => {
 };
 
 SettingsPage.propTypes = {
-  currentTheme: PropTypes.oneOf(themes),
-  dispatch: PropTypes.func,
+  currentTheme: PropTypes.oneOf(themes).isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps)(SettingsPage);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Nav } from '@components/nav/NavCC';
 
-import { BurgerStyled } from '../styled';
+import { BurgerStyled, DownLine, MiddleLine, UpLine } from '../styled';
 
 class BurgerMenuCC extends Component {
   constructor(props) {
@@ -20,9 +20,9 @@ class BurgerMenuCC extends Component {
     return (
       <>
         <BurgerStyled id="burger" isOpen={isOpen} onClick={this.onClickHandler}>
-          <div />
-          <div />
-          <div />
+          <UpLine />
+          <MiddleLine />
+          <DownLine />
         </BurgerStyled>
         <Nav isOpen={isOpen} />
       </>

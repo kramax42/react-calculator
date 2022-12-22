@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { DisplayStyled, Entry, Expression } from '../styled';
 
-class DisplayCC extends Component {
+class DisplayCC extends PureComponent {
   render() {
     const { expression, entry } = this.props;
     return (

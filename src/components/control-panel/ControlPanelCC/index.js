@@ -1,4 +1,4 @@
-import React, { Component, memo } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Button } from '@components/button/ButtonCC';
 import {
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 
 import { ControlPanelStyled, Title } from '../styled';
 
-class ControlPanelCC extends Component {
+class ControlPanelCC extends PureComponent {
   render() {
     const {
       handleToggleHistoryVisibility,
@@ -62,6 +62,7 @@ ControlPanelCC.propTypes = {
   isHistoryVisible: PropTypes.bool.isRequired,
 };
 
-export const ControlPanel = memo(
-  connect(mapStateToProps, mapDispatchToProps)(ControlPanelCC),
-);
+export const ControlPanel = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ControlPanelCC);

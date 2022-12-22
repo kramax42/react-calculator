@@ -1,4 +1,4 @@
-import React, { Component, memo } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -9,7 +9,7 @@ import {
   HistoryWrapper,
 } from '../styled';
 
-class HistoryCC extends Component {
+class HistoryCC extends PureComponent {
   render() {
     const { history, isHistoryVisible } = this.props;
 
@@ -45,7 +45,7 @@ const mapStateToProps = (state) => {
 
 HistoryCC.propTypes = {
   history: PropTypes.arrayOf(PropTypes.string).isRequired,
-  isHistoryVisible: PropTypes.bool,
+  isHistoryVisible: PropTypes.bool.isRequired,
 };
 
-export const History = memo(connect(mapStateToProps)(HistoryCC));
+export const History = connect(mapStateToProps)(HistoryCC);

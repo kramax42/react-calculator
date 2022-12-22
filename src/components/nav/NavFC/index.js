@@ -1,7 +1,7 @@
 import React from 'react';
+import { routeLinks } from '@constants/routes';
 import PropTypes from 'prop-types';
 
-import { routeLinks } from '../links';
 import { NavLi, NavLinkStyled, NavStyled } from '../styled';
 
 function NavFC({ isOpen }) {
@@ -17,7 +17,7 @@ function NavFC({ isOpen }) {
 }
 
 NavFC.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
 };
 
 export const Nav = NavFC;

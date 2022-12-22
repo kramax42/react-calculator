@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from '@components/button/ButtonFC';
 import {
@@ -39,4 +39,4 @@ function ControlPanelFC() {
   );
 }
 
-export const ControlPanel = memo(ControlPanelFC);
+export const ControlPanel = ControlPanelFC;
