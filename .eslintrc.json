@@ -22,24 +22,30 @@
   "rules": {
     "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
-    // "import/extensions": [
-    //   "error",
-    //   "always",
-    //   {
-    //     "js": "never"
-    //   }
-    // ]
+    "react/jsx-props-no-spreading": "off",
+    "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+    "react/no-array-index-key" : "off",
+    "max-classes-per-file": [
+      "error",
+      { "ignoreExpressions": true, "max": 10 }
+    ],
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": [
       "error",
       {
         "groups": [
-          ["^react", "^@?\\w"],
-          ["^(@|components)(/.*|$)"],
-          ["^\\u0000"],
-          ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-          ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-          ["^.+\\.?(css)$"]
+              // Packages `react` related packages come first.
+              ["^react", "^@?\\w"],
+              // Internal packages.
+              ["^(@|components)(/.*|$)"],
+              // Side effect imports.
+              ["^\\u0000"],
+              // Parent imports. Put `..` last.
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              // Other relative imports. Put same-folder imports and `.` last.
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+              // Style imports.
+              ["^.+\\.?(styled.js)$"]
         ]
       }
     ],
