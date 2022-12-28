@@ -25,7 +25,7 @@ export const Select = styled.select`
   cursor: pointer;
   font-size: ${({ theme }) => theme.fontSizes.md}px;
   border: ${({ theme }) =>
-      theme.currentTheme == 'dark' ? theme.borderWidth : 0}px
+      theme.currentTheme === 'dark' ? theme.borderWidth : 0}px
     solid ${({ theme }) => theme.borderColor};
   background-color: ${({ theme }) => theme.headerBackgroundColor};
   color: ${({ theme }) => theme.headerTextColor};

@@ -1,4 +1,4 @@
-import { breakPoints } from '@styles/themes';
+import { breakPoints } from '@styles/break-points';
 import styled from 'styled-components';
 
 export const CalculatorWrapper = styled.div`
@@ -21,7 +21,6 @@ export const Column = styled.div`
   width: 100%;
   padding: ${({ theme }) => theme.spacer * 2}px;
 `;
-
 
 export const CalculatorColumn = styled(Column)`
   width: min-content;

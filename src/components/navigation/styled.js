@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { breakPoints } from '@styles/themes';
+import { breakPoints } from '@styles/break-points';
 import styled from 'styled-components';
 
 export const NavigationLi = styled.li`

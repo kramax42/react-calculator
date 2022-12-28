@@ -1,8 +1,7 @@
-import { breakPoints } from '@styles/themes';
+import { breakPoints } from '@styles/break-points';
 import styled from 'styled-components';
 
 export const GridKeypad = styled.div`
-  max-width: 100vw;
   display: grid;
   grid-template-areas:
     'power       plus    seven        eight   nine          backSpace'
@@ -12,11 +11,11 @@ export const GridKeypad = styled.div`
 
   grid-template-rows: repeat(
     4,
-    minmax(${({ theme }) => theme.keypadButtonWidth}px, 10vw)
+    minmax(${({ theme }) => theme.keypadButtonWidth}px, 160px)
   );
   grid-template-columns: repeat(
     6,
-    minmax(${({ theme }) => theme.keypadButtonWidth}px, 10vw)
+    minmax(${({ theme }) => theme.keypadButtonWidth * 1.2}px, 200px)
   );
   margin-top: ${({ theme }) => theme.spacer * 1}px;
   grid-gap: ${({ theme }) => theme.borderWidth}px;
@@ -24,11 +23,11 @@ export const GridKeypad = styled.div`
   @media (max-width: ${breakPoints.laptopL}) {
     grid-template-rows: repeat(
       4,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.8}px, 7.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.8}px, 140px)
     );
     grid-template-columns: repeat(
       6,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.8}px, 7.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.9}px, 180px)
     );
   }
 
@@ -42,55 +41,55 @@ export const GridKeypad = styled.div`
 
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 7.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 140px)
     );
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 7.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.9}px, 200px)
     );
   }
 
   @media (max-width: ${breakPoints.tablet}) {
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.74}px, 9vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.7}px, 100px)
     );
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.74}px, 9vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.6}px, 150px)
     );
   }
 
   @media (max-width: ${breakPoints.mobileL}) {
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.65}px, 7.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.45}px, 90px)
     );
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.65}px, 7.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 135px)
     );
   }
 
   @media (max-width: ${breakPoints.mobileM}) {
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 6.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 80px)
     );
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 6.5vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 90px)
     );
   }
 
   @media (max-width: ${breakPoints.mobileS}) {
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.37}px, 3.7vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.35}px, 70px)
     );
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.37}px, 3.7vw)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.325}px, 75px)
     );
   }
 `;

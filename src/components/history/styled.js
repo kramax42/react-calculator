@@ -1,4 +1,4 @@
-import { breakPoints } from '@styles/themes';
+import { breakPoints } from '@styles/break-points';
 import styled from 'styled-components';
 
 export const HistoryWrapper = styled.div`
