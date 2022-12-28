@@ -11,7 +11,7 @@ export const GridKeypad = styled.div`
 
   grid-template-rows: repeat(
     4,
-    minmax(${({ theme }) => theme.keypadButtonWidth}px, 160px)
+    minmax(${({ theme }) => theme.keypadButtonWidth}px, 150px)
   );
   grid-template-columns: repeat(
     6,
@@ -23,7 +23,7 @@ export const GridKeypad = styled.div`
   @media (max-width: ${breakPoints.laptopL}) {
     grid-template-rows: repeat(
       4,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.8}px, 140px)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.68}px, 104px)
     );
     grid-template-columns: repeat(
       6,
@@ -41,7 +41,7 @@ export const GridKeypad = styled.div`
 
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 140px)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.52}px, 132px)
     );
     grid-template-columns: repeat(
       5,
@@ -52,7 +52,7 @@ export const GridKeypad = styled.div`
   @media (max-width: ${breakPoints.tablet}) {
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.7}px, 100px)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.62}px, 90px)
     );
     grid-template-columns: repeat(
       5,
@@ -63,7 +63,7 @@ export const GridKeypad = styled.div`
   @media (max-width: ${breakPoints.mobileL}) {
     grid-template-rows: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.45}px, 90px)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.40}px, 80px)
     );
     grid-template-columns: repeat(
       5,
@@ -78,7 +78,7 @@ export const GridKeypad = styled.div`
     );
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 90px)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.48}px, 82px)
     );
   }
 
@@ -89,7 +89,7 @@ export const GridKeypad = styled.div`
     );
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.325}px, 75px)
+      minmax(${({ theme }) => theme.keypadButtonWidth * 0.3}px, 74px)
     );
   }
 `;
