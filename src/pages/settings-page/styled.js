@@ -1,5 +1,5 @@
-import { borderWidth, fontSizes, spacer } from '@styles/sizes';
 import styled from 'styled-components';
+import { borderWidth, fontSizes, spacer } from '@styles/sizes';
 
 export const SettingsWrapper = styled.div`
   display: flex;

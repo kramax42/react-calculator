@@ -1,5 +1,5 @@
-import { fontSizes, spacer } from '@styles/sizes';
 import styled from 'styled-components';
+import { fontSizes, spacer } from '@styles/sizes';
 
 export const Title = styled.p`
   margin: 0px auto ${spacer * 2}px;

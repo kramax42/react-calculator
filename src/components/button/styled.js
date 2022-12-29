@@ -1,5 +1,5 @@
-import { borderWidth, fontSizes, fontWeights, spacer } from '@styles/sizes';
 import styled from 'styled-components';
+import { borderWidth, fontSizes, fontWeights, spacer } from '@styles/sizes';
 
 export const ButtonStyled = styled.button`
   padding: ${spacer * 2}px;

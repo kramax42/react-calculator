@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
 import {
   borderWidth,
@@ -6,7 +7,6 @@ import {
   keypadButtonWidth,
   spacer,
 } from '@styles/sizes';
-import styled from 'styled-components';
 
 export const GridKeypad = styled.div`
   display: grid;

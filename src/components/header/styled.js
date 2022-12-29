@@ -1,5 +1,5 @@
-import { fontSizes, headerHeight, spacer } from '@styles/sizes';
 import styled from 'styled-components';
+import { fontSizes, headerHeight, spacer } from '@styles/sizes';
 
 export const HeaderStyled = styled.div`
   display: flex;

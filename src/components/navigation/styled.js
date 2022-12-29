@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
 import { borderWidth, fontSizes, fontWeights, spacer } from '@styles/sizes';
-import styled from 'styled-components';
 
 export const NavigationLi = styled.li`
   margin-left: ${spacer * 2}px;

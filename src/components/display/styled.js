@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
 import { fontSizes } from '@styles/sizes';
-import styled from 'styled-components';
 
 export const Entry = styled.div`
   overflow-x: auto;

@@ -1,7 +1,7 @@
+import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
 import { burger } from '@styles/sizes';
 import { zIndexes } from '@styles/z-indexes';
-import styled from 'styled-components';
 
 export const UpLine = styled.div``;
 export const MiddleLine = styled.div``;

@@ -1,5 +1,5 @@
-import { fontSizes } from '@styles/sizes';
 import styled from 'styled-components';
+import { fontSizes } from '@styles/sizes';
 
 export const ErrorBoundaryStyled = styled.div`
   display: flex;

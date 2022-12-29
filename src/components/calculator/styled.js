@@ -1,6 +1,6 @@
+import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
 import { borderWidth, headerHeight, spacer } from '@styles/sizes';
-import styled from 'styled-components';
 
 export const CalculatorWrapper = styled.div`
   display: flex;

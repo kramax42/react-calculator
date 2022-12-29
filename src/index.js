@@ -2,9 +2,9 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { Provider, useSelector } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import GlobalStyles from '@styles/global-styles';
 import { themes } from '@styles/themes';
-import { ThemeProvider } from 'styled-components';
 
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import { store } from '@store';
