@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { transition } from '@styles/animation';
 import { breakPoints } from '@styles/break-points';
 import { burger } from '@styles/components';
 import { zIndexes } from '@styles/z-indexes';
@@ -25,7 +26,7 @@ export const BurgerStyled = styled.div`
     background-color: ${({ theme }) => theme.header.textColor};
     border-radius: ${burger.lineBorderRadius}px;
     transform-origin: 1px;
-    transition: all 0.3s linear;
+    transition: all ${transition}s linear;
 
     &:nth-child(1) {
       transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg)' : 'rotate(0)')};

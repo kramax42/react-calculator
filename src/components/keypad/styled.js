@@ -1,12 +1,7 @@
 import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
-import {
-  borderWidth,
-  fontSizes,
-  fontWeights,
-  keypadButtonWidth,
-  spacer,
-} from '@styles/sizes';
+import { keypadButton } from '@styles/components';
+import { borderWidth, fontSizes, fontWeights, margins } from '@styles/sizes';
 
 export const GridKeypad = styled.div`
   display: grid;
@@ -16,17 +11,14 @@ export const GridKeypad = styled.div`
     'dot         mul     one          two     three         clean'
     'mod         div     leftBracket  zero    rightBracket  equals';
 
-  grid-template-rows: repeat(4, minmax(${keypadButtonWidth}px, 150px));
-  grid-template-columns: repeat(6, minmax(${keypadButtonWidth * 1.2}px, 200px));
-  margin-top: ${spacer * 1}px;
+  grid-template-rows: repeat(4, ${keypadButton.sizes.desktop.height}px);
+  grid-template-columns: repeat(6, ${keypadButton.sizes.desktop.width}px);
+  margin-top: ${margins.md}px;
   grid-gap: ${borderWidth}px;
 
   @media (max-width: ${breakPoints.laptopL}) {
-    grid-template-rows: repeat(4, minmax(${keypadButtonWidth * 0.68}px, 104px));
-    grid-template-columns: repeat(
-      6,
-      minmax(${keypadButtonWidth * 0.9}px, 180px)
-    );
+    grid-template-rows: repeat(4, ${keypadButton.sizes.laptopL.height}px);
+    grid-template-columns: repeat(6, ${keypadButton.sizes.laptopL.width}px);
   }
 
   @media (max-width: ${breakPoints.laptop}) {
@@ -37,43 +29,28 @@ export const GridKeypad = styled.div`
       'div    leftBracket  zero    rightBracket  equals'
       'power  changeSign   dot     mod           equals';
 
-    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.52}px, 132px));
-    grid-template-columns: repeat(
-      5,
-      minmax(${keypadButtonWidth * 0.9}px, 200px)
-    );
+    grid-template-rows: repeat(5, ${keypadButton.sizes.laptop.height}px);
+    grid-template-columns: repeat(5, ${keypadButton.sizes.laptop.width}px);
   }
 
   @media (max-width: ${breakPoints.tablet}) {
-    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.62}px, 90px));
-    grid-template-columns: repeat(
-      5,
-      minmax(${keypadButtonWidth * 0.6}px, 150px)
-    );
+    grid-template-rows: repeat(5, ${keypadButton.sizes.tablet.height}px);
+    grid-template-columns: repeat(5, ${keypadButton.sizes.tablet.width}px);
   }
 
   @media (max-width: ${breakPoints.mobileL}) {
-    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.4}px, 80px));
-    grid-template-columns: repeat(
-      5,
-      minmax(${keypadButtonWidth * 0.55}px, 135px)
-    );
+    grid-template-rows: repeat(5, ${keypadButton.sizes.mobileL.height}px);
+    grid-template-columns: repeat(5, ${keypadButton.sizes.mobileL.width}px);
   }
 
   @media (max-width: ${breakPoints.mobileM}) {
-    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.55}px, 80px));
-    grid-template-columns: repeat(
-      5,
-      minmax(${keypadButtonWidth * 0.48}px, 82px)
-    );
+    grid-template-rows: repeat(5, ${keypadButton.sizes.mobileM.height}px);
+    grid-template-columns: repeat(5, ${keypadButton.sizes.mobileM.width}px);
   }
 
   @media (max-width: ${breakPoints.mobileS}) {
-    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.35}px, 68px));
-    grid-template-columns: repeat(
-      5,
-      minmax(${keypadButtonWidth * 0.3}px, 74px)
-    );
+    grid-template-rows: repeat(5, ${keypadButton.sizes.mobileS.height}px);
+    grid-template-columns: repeat(5, ${keypadButton.sizes.mobileS.width}px);
   }
 `;
 

@@ -1,19 +1,26 @@
 import styled from 'styled-components';
+import { transition } from '@styles/animation';
 import { breakPoints } from '@styles/break-points';
+import { history } from '@styles/components';
 import { fontSizes, fontWeights, margins, paddings } from '@styles/sizes';
 
 export const HistoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 350px;
-  max-height: 100%;
+
+  max-height: ${history.sizes.desktop.height}px;
   padding: ${paddings.xl}px;
   padding-left: 0;
   opacity: ${({ open }) => (open ? 1 : 0)};
-  transition: 0.3s;
+  transition: ${transition}s;
+
+  @media (max-width: ${breakPoints.laptopL}) {
+    max-height: ${history.sizes.laptopL.height}px;
+  }
+
   @media (max-width: ${breakPoints.laptop}) {
-    max-height: 200%;
+    max-height: ${history.sizes.laptop.height}px;
     min-height: 0;
     padding: ${paddings.xl}px;
   }
@@ -34,9 +41,5 @@ export const HistoryItems = styled.div`
 
 export const HistoryItem = styled.div`
   margin-top: ${margins.md}px;
-  max-width: 220px;
   word-wrap: break-all;
-  @media (max-width: ${breakPoints.laptop}) {
-    max-width: 300px;
-  }
 `;

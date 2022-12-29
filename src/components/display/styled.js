@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
+import { display } from '@styles/components';
 import { fontSizes } from '@styles/sizes';
 
 export const Entry = styled.div`
@@ -12,31 +13,31 @@ export const Entry = styled.div`
 `;
 
 export const DisplayStyled = styled.div`
-  max-width: 600px;
+  width: ${display.sizes.desktop.width}px;
   word-wrap: normal;
 
   @media (max-width: ${breakPoints.laptopL}) {
-    max-width: 500px;
+    width: ${display.sizes.laptopL.width}px;
   }
 
   @media (max-width: ${breakPoints.laptop}) {
-    max-width: 460px;
+    width: ${display.sizes.laptop.width}px;
   }
 
   @media (max-width: ${breakPoints.tablet}) {
-    max-width: 350px;
+    width: ${display.sizes.tablet.width}px;
   }
 
   @media (max-width: ${breakPoints.mobileL}) {
-    max-width: 270px;
+    width: ${display.sizes.mobileL.width}px;
   }
 
   @media (max-width: ${breakPoints.mobileM}) {
-    max-width: 255px;
+    width: ${display.sizes.mobileM.width}px;
   }
 
   @media (max-width: ${breakPoints.mobileS}) {
-    max-width: 215px;
+    width: ${display.sizes.mobileS.width}px;
   }
 `;
 

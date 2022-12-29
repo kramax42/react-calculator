@@ -19,7 +19,7 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: ${paddings.xl}px;
+  padding: ${paddings.xxxl}px;
 `;
 
 export const CalculatorColumn = styled(Column)`
@@ -27,7 +27,7 @@ export const CalculatorColumn = styled(Column)`
   min-height: calc(100vh - ${headerHeight * 1.1}px);
   align-items: flex-end;
   border-right: ${borderWidth}px solid ${({ theme }) => theme.borderColor};
-  padding-right: ${paddings.xl}px;
+  padding-right: ${paddings.xxxl}px;
 
   @media (max-width: ${breakPoints.laptop}) {
     height: max-content;
@@ -38,16 +38,12 @@ export const CalculatorColumn = styled(Column)`
 
 export const HistoryColumn = styled(Column)`
   height: 100%;
-  max-height: 400px;
+  max-height: 350px;
 
   & > div {
     @media (max-width: ${breakPoints.laptop}) {
       padding: ${paddings.xxl}px;
       border-top: 1px solid ${({ theme }) => theme.borderColor};
     }
-  }
-
-  @media (max-width: ${breakPoints.laptop}) {
-    max-height: 500px;
   }
 `;
