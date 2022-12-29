@@ -16,9 +16,8 @@ export class CalculatorCommand {
     this.rightOperand = rightOperand;
   }
 
-  // eslint-disable-next-line class-methods-use-this
   execute() {
-    throw new Error('CalculatorCommand.execute() is not implemented');
+    throw new Error('CalculatorCommand.execute() is not implemented', this);
   }
 }
 

@@ -36,7 +36,6 @@ module.exports = {
         ],
       },
       {
-        // Babel config for SVG as react component
         test: /\.svg$/,
         use: ['@svgr/webpack'],
       },

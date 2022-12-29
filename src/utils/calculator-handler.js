@@ -17,6 +17,7 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
     expression,
     newHistoryItems: [],
   };
+
   const calculatorOperations = {
     [CALCULATOR_BUTTONS.equals]: () => {
       // Using cast entry to number for converting .3 to 0.3

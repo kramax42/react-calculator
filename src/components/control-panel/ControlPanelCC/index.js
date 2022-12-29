@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { Button } from '@components/button/ButtonCC';
 import {
   clearHistory,
   toggleHistoryVisibility,
 } from '@store/reducers/calculator.reducer';
-import PropTypes from 'prop-types';
 
 import { ControlPanelStyled, Title } from '../styled';
 

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { MainLayout } from '@layouts/main-layout/MainLayoutCC';
 
 import { Spinner } from '../styled';

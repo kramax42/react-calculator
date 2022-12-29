@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { routeLinks } from '@constants/routes';
 import PropTypes from 'prop-types';
+
+import { routeLinks } from '@constants/routes';
 
 import {
   NavigationLi,

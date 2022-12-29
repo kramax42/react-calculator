@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { Button } from '@components/button/ButtonCC';
 import { themes } from '@constants/themes';
 import { MainLayout } from '@layouts/main-layout/MainLayoutCC';
 import { clearHistory } from '@store/reducers/calculator.reducer';
 import { setTheme } from '@store/reducers/theme.reducer';
 import { capitalize } from '@utils/capitalize';
-import PropTypes from 'prop-types';
 
 import {
   Column,

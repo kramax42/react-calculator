@@ -16,7 +16,7 @@ export const parseExpression = (expr, calculator) => {
   const factor = (str) => {
     const makeNumber = (str) => {
       let result = '';
-      while (/[0-9\.]/.test(peek(str))) {
+      while (/[0-9.]/.test(peek(str))) {
         result += get(str);
       }
       return Number(result);
@@ -26,15 +26,19 @@ export const parseExpression = (expr, calculator) => {
       get(str);
       return -1 * factor(str);
     }
+
     if (!isNaN(peek(str))) {
       return makeNumber(str);
     }
+
     if (peek(str) === OPERATORS.leftBracket) {
       get(str); // Сonsume opening parenthesis.
       const number = expression(str);
       get(str); // Consume closing parenthesis
       return number;
     }
+
+    return '';
   };
 
   const term = (str) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Header } from '@components/header/HeaderCC';
 import PropTypes from 'prop-types';
+
+import { Header } from '@components/header/HeaderCC';
 
 import { ChildrenStyled, MainLayoutStyled } from '../styled';
 

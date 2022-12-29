@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import { Navigation } from '@components/navigation/NavigationCC';
 
 import { BurgerStyled, DownLine, MiddleLine, UpLine } from '../styled';

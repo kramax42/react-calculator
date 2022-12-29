@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import { CALCULATOR_BUTTONS } from '@constants/calculator';
 import { updateCalculatorValues } from '@store/reducers/calculator.reducer';
-import PropTypes from 'prop-types';
 
 import { GridKeypad, KeypadButton } from '../styled';
 

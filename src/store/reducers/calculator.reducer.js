@@ -1,4 +1,5 @@
 import { createSlice, current } from '@reduxjs/toolkit';
+
 import { calculatorHandler } from '@utils/calculator-handler';
 
 const initialState = {
