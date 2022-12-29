@@ -1,4 +1,4 @@
-const baseUrl = Cypress.config().baseUrl;
+const { baseUrl } = Cypress.config();
 
 describe('Navigation e2e', () => {
   beforeEach(() => {
@@ -8,21 +8,21 @@ describe('Navigation e2e', () => {
 
   it('Settings(FC) navigation should work', () => {
     cy.contains('Settings(FC)').click();
-    cy.url().should('eq', baseUrl + '/settings-fc');
+    cy.url().should('eq', `${baseUrl}/settings-fc`);
   });
 
   it('Home(FC) navigation should work', () => {
     cy.contains('Home(FC)').click();
-    cy.url().should('eq', baseUrl + '/');
+    cy.url().should('eq', `${baseUrl}/`);
   });
 
   it('Settings(CC) navigation should work', () => {
     cy.contains('Settings(CC)').click();
-    cy.url().should('eq', baseUrl + '/settings-cc');
+    cy.url().should('eq', `${baseUrl}/settings-cc`);
   });
 
   it('Home(CC) navigation should work', () => {
     cy.contains('Home(CC)').click();
-    cy.url().should('eq', baseUrl + '/home-cc');
+    cy.url().should('eq', `${baseUrl}/home-cc`);
   });
 });

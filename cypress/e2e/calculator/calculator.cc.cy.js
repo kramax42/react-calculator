@@ -1,5 +1,6 @@
-import { CALCULATOR_BUTTONS } from '../../../src/constants/calculator.js';
+import { CALCULATOR_BUTTONS } from '../../../src/constants/calculator';
 import { getKeyByValue } from '../../../src/utils/get-key-by-value';
+
 import { expressions, expressionsSequence } from './expressions';
 
 describe('Home page CC e2e', () => {
@@ -26,11 +27,11 @@ describe('Home page CC e2e', () => {
 
   context('calculator functionality and history', () => {
     it('entry should display correct number after calculation', () => {
-      for (let { commands, equals } of expressions) {
+      for (const { commands, equals } of expressions) {
         // Clean display and entry.
         cy.get(`button[data-keypad-value="clean"]`).click();
 
-        for (let commandValue of commands) {
+        for (const commandValue of commands) {
           const keypadValue = getKeyByValue(CALCULATOR_BUTTONS, commandValue);
           cy.get(`button[data-keypad-value="${keypadValue}"]`).click();
         }
@@ -81,8 +82,8 @@ describe('Home page CC e2e', () => {
       // Clean display and entry.
       cy.get(`button[data-keypad-value="clean"]`).click();
 
-      for (let { commands, equals } of expressionsSequence) {
-        for (let commandValue of commands) {
+      for (const { commands, equals } of expressionsSequence) {
+        for (const commandValue of commands) {
           const keypadValue = getKeyByValue(CALCULATOR_BUTTONS, commandValue);
           cy.get(`button[data-keypad-value="${keypadValue}"]`).click();
         }
