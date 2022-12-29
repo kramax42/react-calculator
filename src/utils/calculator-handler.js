@@ -11,13 +11,8 @@ const toFullWideNumberString = (str) => {
     : String(num);
 };
 
-export const calculatorHandler = ({ keypadValue, entry, expression }) => {
-  const newState = {
-    entry,
-    expression,
-    newHistoryItems: [],
-  };
-
+const getCalculatorOperations = ({ entry, expression, newState: state }) => {
+  const newState = { ...state };
   const calculatorOperations = {
     [CALCULATOR_BUTTONS.equals]: () => {
       // Using cast entry to number for converting .3 to 0.3
@@ -39,15 +34,19 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
           calculatedExpression: `${newExpression} = ${newResult}`,
         });
       }
+
       newState.expression = '';
       newState.entry = toFullWideNumberString(newResult);
+      return newState;
     },
     [CALCULATOR_BUTTONS.clean]: () => {
       newState.expression = '';
       newState.entry = '';
+      return newState;
     },
     [CALCULATOR_BUTTONS.cleanEntry]: () => {
       newState.entry = '';
+      return newState;
     },
     [CALCULATOR_BUTTONS.backSpace]: () => {
       if (entry.length) {
@@ -55,11 +54,13 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
       } else {
         newState.expression = expression.slice(0, expression.length - 1) || '';
       }
+      return newState;
     },
     [CALCULATOR_BUTTONS.changeSign]: () => {
       if (entry) {
         newState.entry = String(Number(toFullWideNumberString(entry)) * -1);
       }
+      return newState;
     },
     [CALCULATOR_BUTTONS.leftBracket]: (keypadValue) => {
       if (
@@ -71,6 +72,7 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
       ) {
         newState.expression = expression + keypadValue;
       }
+      return newState;
     },
     [CALCULATOR_BUTTONS.rightBracket]: (keypadValue) => {
       if (expression.at(-1) === CALCULATOR_BUTTONS.rightBracket) {
@@ -80,11 +82,13 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
       }
 
       newState.entry = '';
+      return newState;
     },
     [CALCULATOR_BUTTONS.dot]: () => {
       if (!entry.includes(CALCULATOR_BUTTONS.dot)) {
         newState.entry = entry + CALCULATOR_BUTTONS.dot;
       }
+      return newState;
     },
     operator: (keypadValue) => {
       const isLastExpressionCharOperator = (expression, entry) => {
@@ -119,9 +123,18 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
       }
 
       newState.entry = '';
+      return newState;
     },
   };
 
+  return calculatorOperations;
+};
+
+export const calculatorHandler = ({
+  keypadValue,
+  entry: prevEntry,
+  expression,
+}) => {
   const isIncorrectEntry = (entry) => {
     return (
       Number(entry) === Infinity ||
@@ -130,22 +143,34 @@ export const calculatorHandler = ({ keypadValue, entry, expression }) => {
     );
   };
 
+  let entry = prevEntry;
+  if (isIncorrectEntry(entry)) {
+    entry = '';
+  }
+
+  let newState = {
+    entry,
+    expression,
+    newHistoryItems: [],
+  };
+
+  const calculatorOperations = getCalculatorOperations({
+    entry,
+    expression,
+    newState,
+  });
+
   const isNonMathOperation = (keypadValue) =>
     Boolean(calculatorOperations[keypadValue]);
 
   const isMathOperator = (keypadValue) => operators.includes(keypadValue);
 
-  if (isIncorrectEntry(entry)) {
-    entry = '';
-    newState.entry = '';
-  }
-
   if (isNonMathOperation(keypadValue)) {
     const calulatorOperation = calculatorOperations[keypadValue];
-    calulatorOperation(keypadValue);
+    newState = calulatorOperation(keypadValue);
   } else if (isMathOperator(keypadValue)) {
     const operatorOperation = calculatorOperations.operator;
-    operatorOperation(keypadValue);
+    newState = operatorOperation(keypadValue);
   } else if (entry.length < maxEntryLength) {
     newState.entry = (entry === '0' ? '' : entry) + keypadValue;
   }
