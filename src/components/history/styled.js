@@ -8,7 +8,6 @@ export const HistoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-
   max-height: ${history.sizes.desktop.height}px;
   padding: ${paddings.xl}px;
   padding-left: 0;
@@ -21,6 +20,7 @@ export const HistoryWrapper = styled.div`
 
   @media (max-width: ${breakPoints.laptop}) {
     max-height: ${history.sizes.laptop.height}px;
+
     padding: ${paddings.xl}px;
   }
 `;

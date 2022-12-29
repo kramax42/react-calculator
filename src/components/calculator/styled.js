@@ -38,8 +38,6 @@ export const CalculatorColumn = styled(Column)`
 
 export const HistoryColumn = styled(Column)`
   height: 100%;
-  max-height: 350px;
-
   & > div {
     @media (max-width: ${breakPoints.laptop}) {
       padding: ${paddings.xxl}px;
