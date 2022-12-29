@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { borderWidth, fontSizes, fontWeights, spacer } from '@styles/sizes';
+import { borderWidth, fontSizes, fontWeights, paddings } from '@styles/sizes';
 
 export const ButtonStyled = styled.button`
-  padding: ${spacer * 2}px;
+  padding: ${paddings.xl}px;
   font-size: ${fontSizes.md}px;
   font-weight: ${fontWeights.normal};
   background-color: ${({ theme }) => theme.button.backgroundColor};

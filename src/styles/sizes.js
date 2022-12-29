@@ -3,11 +3,22 @@ export const keypadButtonWidth = 120;
 export const borderWidth = 1.4;
 export const spacer = 8;
 
-export const burger = {
-  size: spacer * 3,
-  lineWidth: spacer * 3,
-  lineHeight: spacer * 0.36,
-  lineBorderRadius: spacer * 1.25,
+export const margins = {
+  sm: 4,
+  md: 8,
+  xl: 16,
+  xxl: 24,
+  xxxl: 32,
+  xxxxl: 64,
+};
+
+export const paddings = {
+  sm: 4,
+  md: 8,
+  xl: 16,
+  xxl: 24,
+  xxxl: 32,
+  xxxxl: 64,
 };
 
 export const fontSizes = {

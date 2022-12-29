@@ -69,7 +69,7 @@ export const GridKeypad = styled.div`
   }
 
   @media (max-width: ${breakPoints.mobileS}) {
-    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.35}px, 70px));
+    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.35}px, 68px));
     grid-template-columns: repeat(
       5,
       minmax(${keypadButtonWidth * 0.3}px, 74px)

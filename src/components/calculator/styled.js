@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
-import { borderWidth, headerHeight, spacer } from '@styles/sizes';
+import { borderWidth, headerHeight, paddings } from '@styles/sizes';
 
 export const CalculatorWrapper = styled.div`
   display: flex;
   width: 100%;
-  height: 100%;
   justify-content: flex-end;
   flex-direction: row;
 
@@ -20,15 +19,15 @@ export const Column = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: ${spacer * 2}px;
+  padding: ${paddings.xl}px;
 `;
 
 export const CalculatorColumn = styled(Column)`
   width: min-content;
-  min-height: calc(100vh - ${headerHeight * 1.3}px);
+  min-height: calc(100vh - ${headerHeight * 1.1}px);
   align-items: flex-end;
   border-right: ${borderWidth}px solid ${({ theme }) => theme.borderColor};
-  padding-right: ${spacer * 2}px;
+  padding-right: ${paddings.xl}px;
 
   @media (max-width: ${breakPoints.laptop}) {
     height: max-content;
@@ -39,16 +38,16 @@ export const CalculatorColumn = styled(Column)`
 
 export const HistoryColumn = styled(Column)`
   height: 100%;
-  max-height: 550px;
+  max-height: 400px;
 
   & > div {
     @media (max-width: ${breakPoints.laptop}) {
-      padding: ${spacer * 2.5}px;
+      padding: ${paddings.xxl}px;
       border-top: 1px solid ${({ theme }) => theme.borderColor};
     }
   }
 
   @media (max-width: ${breakPoints.laptop}) {
-    max-height: 600px;
+    max-height: 500px;
   }
 `;

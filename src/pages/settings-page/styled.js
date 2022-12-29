@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { borderWidth, fontSizes, spacer } from '@styles/sizes';
+import { select } from '@styles/components';
+import { borderWidth, fontSizes, margins, paddings } from '@styles/sizes';
 
 export const SettingsWrapper = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const SettingsWrapper = styled.div`
   width: 100%;
   height: 100%;
   align-items: center;
-  padding: ${spacer}px;
+  padding: ${paddings.md}px;
 `;
 
 export const Option = styled.option`
@@ -18,27 +19,27 @@ export const Option = styled.option`
 `;
 
 export const Select = styled.select`
-  width: ${spacer * 30}px;
-  height: ${spacer * 9}px;
-  margin-bottom: ${spacer * 2}px;
-  padding: ${spacer * 2}px;
-  cursor: pointer;
+  width: ${select.width}px;
+  height: ${select.height}px;
+  margin-bottom: ${margins.xl}px;
+  padding: ${paddings.xl}px;
   font-size: ${fontSizes.md}px;
   border: ${({ theme }) => (theme.currentTheme === 'dark' ? borderWidth : 0)}px
     solid ${({ theme }) => theme.borderColor};
   background-color: ${({ theme }) => theme.header.backgroundColor};
   color: ${({ theme }) => theme.header.textColor};
   text-align: center;
+  cursor: pointer;
 `;
 
 export const SelectLabel = styled.label`
   color: ${({ theme }) => theme.text.secondaryColor};
   font-size: ${fontSizes.md}px;
-  padding-bottom: ${spacer}px;
+  padding-bottom: ${paddings.md}px;
 `;
 
 export const Title = styled.p`
-  padding: ${spacer * 4}px;
+  padding: ${paddings.xxxl}px;
   font-size: ${fontSizes.xxxl}px;
   color: ${({ theme }) => theme.text.color};
 `;

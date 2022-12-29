@@ -16,7 +16,7 @@ describe('Home page FC e2e', () => {
 
   it('display component should contain correct value after click on keypad buttons', () => {
     let expectedDisplayValue = '';
-    for (let i = 9; i >= 0; i--) {
+    for (let i = 9; i >= 0; i -= 1) {
       expectedDisplayValue += i.toString();
       const keypadValue = getKeyByValue(CALCULATOR_BUTTONS, i.toString());
       cy.get(`button[data-keypad-value="${keypadValue}"]`).click();
@@ -41,7 +41,7 @@ describe('Home page FC e2e', () => {
     });
 
     it('history should contain correct values', () => {
-      for (let i = 0; i < expressions.length; ++i) {
+      for (let i = 0; i < expressions.length; i += 1) {
         const { expression, equals } = expressions[i];
         const expectedHistoryItem = `${i + 1}) ${expression} = ${equals}`;
 

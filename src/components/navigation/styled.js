@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
-import { borderWidth, fontSizes, fontWeights, spacer } from '@styles/sizes';
+import { navigationLink } from '@styles/components';
+import { fontSizes, fontWeights, margins, paddings } from '@styles/sizes';
 
 export const NavigationLi = styled.li`
-  margin-left: ${spacer * 2}px;
+  margin-left: ${margins.xl}px;
   list-style-type: none;
   font-size: ${fontSizes.xl}px;
   font-weight: ${fontWeights.normal};
@@ -20,7 +21,7 @@ export const NavigationStyled = styled.ul`
   flex-flow: row nowrap;
   list-style: none;
   li {
-    padding: ${spacer * 2}px ${spacer * 1}px;
+    padding: ${paddings.xl}px ${paddings.md}px;
   }
   @media (max-width: ${breakPoints.laptop}) {
     flex-flow: column nowrap;
@@ -29,9 +30,9 @@ export const NavigationStyled = styled.ul`
       isOpen ? 'translateX(0)' : 'translateX(100%)'};
     top: 0;
     right: 0;
-    height: 100vh;
-    width: 100vw;
-    padding-top: ${spacer * 12}px;
+    height: 100%;
+    width: 100%;
+    padding-top: ${paddings.xxxxl}px;
     background-color: ${({ theme }) => theme.header.backgroundColor};
     transition: transform 0.3s ease-in-out;
     li {
@@ -52,10 +53,10 @@ export const NavigationLinkStyled = styled(NavLink)`
     content: '';
     position: absolute;
     width: 100%;
-    height: ${borderWidth * 2}px;
+    height: ${navigationLink.bottomLineHeight}px;
     background-color: ${({ theme }) => theme.header.textColor};
     opacity: ${({ isActive }) => (isActive ? 1 : 0.7)};
-    bottom: ${borderWidth * -6}px;
+    bottom: ${navigationLink.bottomLineMargin}px;
     left: 0;
     transform-origin: right;
     transform: scaleX(0);

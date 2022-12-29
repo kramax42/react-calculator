@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { fontSizes, headerHeight, spacer } from '@styles/sizes';
+import { fontSizes, headerHeight, paddings } from '@styles/sizes';
 
 export const HeaderStyled = styled.div`
   display: flex;
@@ -8,7 +8,7 @@ export const HeaderStyled = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.header.backgroundColor};
   color: ${({ theme }) => theme.header.textColor};
-  padding: ${spacer * 4}px;
+  padding: ${paddings.xxxl}px;
 `;
 
 export const HeaderLogo = styled.p`

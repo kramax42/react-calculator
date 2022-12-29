@@ -1,7 +1,7 @@
 import { colors, darkColors, grayColors } from './colors';
+import { burger } from './components';
 import {
   borderWidth,
-  burger,
   fontSizes,
   fontWeights,
   headerHeight,

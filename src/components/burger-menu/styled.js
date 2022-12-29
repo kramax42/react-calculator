@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { breakPoints } from '@styles/break-points';
-import { burger } from '@styles/sizes';
+import { burger } from '@styles/components';
 import { zIndexes } from '@styles/z-indexes';
 
 export const UpLine = styled.div``;

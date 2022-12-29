@@ -16,27 +16,27 @@ export const DisplayStyled = styled.div`
   word-wrap: normal;
 
   @media (max-width: ${breakPoints.laptopL}) {
-    max-width: 400px;
+    max-width: 500px;
   }
 
   @media (max-width: ${breakPoints.laptop}) {
-    max-width: 280px;
+    max-width: 460px;
   }
 
   @media (max-width: ${breakPoints.tablet}) {
-    max-width: 340px;
+    max-width: 350px;
   }
 
   @media (max-width: ${breakPoints.mobileL}) {
-    max-width: 240px;
+    max-width: 270px;
   }
 
   @media (max-width: ${breakPoints.mobileM}) {
-    max-width: 240px;
+    max-width: 255px;
   }
 
   @media (max-width: ${breakPoints.mobileS}) {
-    max-width: 220px;
+    max-width: 215px;
   }
 `;
 
