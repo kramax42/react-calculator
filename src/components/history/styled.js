@@ -21,7 +21,6 @@ export const HistoryWrapper = styled.div`
 
   @media (max-width: ${breakPoints.laptop}) {
     max-height: ${history.sizes.laptop.height}px;
-    min-height: 0;
     padding: ${paddings.xl}px;
   }
 `;
