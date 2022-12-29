@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from '@components/ErrorBoundary';
 import { store } from '@store';
 import GlobalStyles from '@styles/global-styles';
-import { theme, themes } from '@styles/themes';
+import { themes } from '@styles/themes';
 import { ThemeProvider } from 'styled-components';
 
 import App from './components/App';
@@ -20,7 +20,6 @@ function Root() {
     <ErrorBoundary>
       <ThemeProvider
         theme={{
-          ...theme,
           ...themes[currentTheme],
           currentTheme,
         }}>

@@ -1,4 +1,5 @@
 import { breakPoints } from '@styles/break-points';
+import { fontSizes } from '@styles/sizes';
 import styled from 'styled-components';
 
 export const Entry = styled.div`
@@ -6,8 +7,8 @@ export const Entry = styled.div`
   max-width: 100%;
   word-wrap: normal;
   text-align: right;
-  color: ${({ theme }) => theme.textColor};
-  font-size: ${({ theme }) => theme.fontSizes.xxxl}px;
+  color: ${({ theme }) => theme.text.color};
+  font-size: ${fontSizes.xxxl}px;
 `;
 
 export const DisplayStyled = styled.div`
@@ -44,6 +45,6 @@ export const Expression = styled.div`
   max-width: 100%;
   text-align: right;
   word-wrap: break-all;
-  color: ${({ theme }) => theme.textSecondaryColor};
-  font-size: ${({ theme }) => theme.fontSizes.xl}px;
+  color: ${({ theme }) => theme.text.secondaryColor};
+  font-size: ${fontSizes.xl}px;
 `;

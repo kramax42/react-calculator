@@ -1,4 +1,11 @@
 import { breakPoints } from '@styles/break-points';
+import {
+  borderWidth,
+  fontSizes,
+  fontWeights,
+  keypadButtonWidth,
+  spacer,
+} from '@styles/sizes';
 import styled from 'styled-components';
 
 export const GridKeypad = styled.div`
@@ -9,25 +16,16 @@ export const GridKeypad = styled.div`
     'dot         mul     one          two     three         clean'
     'mod         div     leftBracket  zero    rightBracket  equals';
 
-  grid-template-rows: repeat(
-    4,
-    minmax(${({ theme }) => theme.keypadButtonWidth}px, 150px)
-  );
-  grid-template-columns: repeat(
-    6,
-    minmax(${({ theme }) => theme.keypadButtonWidth * 1.2}px, 200px)
-  );
-  margin-top: ${({ theme }) => theme.spacer * 1}px;
-  grid-gap: ${({ theme }) => theme.borderWidth}px;
+  grid-template-rows: repeat(4, minmax(${keypadButtonWidth}px, 150px));
+  grid-template-columns: repeat(6, minmax(${keypadButtonWidth * 1.2}px, 200px));
+  margin-top: ${spacer * 1}px;
+  grid-gap: ${borderWidth}px;
 
   @media (max-width: ${breakPoints.laptopL}) {
-    grid-template-rows: repeat(
-      4,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.68}px, 104px)
-    );
+    grid-template-rows: repeat(4, minmax(${keypadButtonWidth * 0.68}px, 104px));
     grid-template-columns: repeat(
       6,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.9}px, 180px)
+      minmax(${keypadButtonWidth * 0.9}px, 180px)
     );
   }
 
@@ -39,57 +37,42 @@ export const GridKeypad = styled.div`
       'div    leftBracket  zero    rightBracket  equals'
       'power  changeSign   dot     mod           equals';
 
-    grid-template-rows: repeat(
-      5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.52}px, 132px)
-    );
+    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.52}px, 132px));
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.9}px, 200px)
+      minmax(${keypadButtonWidth * 0.9}px, 200px)
     );
   }
 
   @media (max-width: ${breakPoints.tablet}) {
-    grid-template-rows: repeat(
-      5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.62}px, 90px)
-    );
+    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.62}px, 90px));
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.6}px, 150px)
+      minmax(${keypadButtonWidth * 0.6}px, 150px)
     );
   }
 
   @media (max-width: ${breakPoints.mobileL}) {
-    grid-template-rows: repeat(
-      5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.40}px, 80px)
-    );
+    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.4}px, 80px));
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 135px)
+      minmax(${keypadButtonWidth * 0.55}px, 135px)
     );
   }
 
   @media (max-width: ${breakPoints.mobileM}) {
-    grid-template-rows: repeat(
-      5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.55}px, 80px)
-    );
+    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.55}px, 80px));
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.48}px, 82px)
+      minmax(${keypadButtonWidth * 0.48}px, 82px)
     );
   }
 
   @media (max-width: ${breakPoints.mobileS}) {
-    grid-template-rows: repeat(
-      5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.35}px, 70px)
-    );
+    grid-template-rows: repeat(5, minmax(${keypadButtonWidth * 0.35}px, 70px));
     grid-template-columns: repeat(
       5,
-      minmax(${({ theme }) => theme.keypadButtonWidth * 0.3}px, 74px)
+      minmax(${keypadButtonWidth * 0.3}px, 74px)
     );
   }
 `;
@@ -98,12 +81,11 @@ export const KeypadButton = styled.button`
   grid-area: ${(props) => props['data-keypad-value']};
   cursor: pointer;
   border: 0;
-  outline: ${({ theme }) => theme.borderWidth}px solid
-    ${({ theme }) => theme.borderColor};
-  font-size: ${({ theme }) => theme.fontSizes.xxl}px;
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
-  color: ${({ theme }) => theme.keypadColor};
-  background-color: ${({ theme }) => theme.keypadBackground};
+  outline: ${borderWidth}px solid ${({ theme }) => theme.borderColor};
+  font-size: ${fontSizes.xxl}px;
+  font-weight: ${fontWeights.normal};
+  color: ${({ theme }) => theme.keypad.textColor};
+  background-color: ${({ theme }) => theme.keypad.backgroundColor};
   &:hover {
     background-color: ${({ theme }) => theme.borderColor};
   }

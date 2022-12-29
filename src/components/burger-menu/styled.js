@@ -1,5 +1,6 @@
 import { breakPoints } from '@styles/break-points';
-import { zIndexes } from '@styles/themes';
+import { burger } from '@styles/sizes';
+import { zIndexes } from '@styles/z-indexes';
 import styled from 'styled-components';
 
 export const UpLine = styled.div``;
@@ -9,8 +10,8 @@ export const DownLine = styled.div``;
 export const BurgerStyled = styled.div`
   display: none;
   z-index: ${zIndexes.navigation};
-  width: ${({ theme }) => theme.burger.size}px;
-  height: ${({ theme }) => theme.burger.size}px;
+  width: ${burger.size}px;
+  height: ${burger.size}px;
 
   @media (max-width: ${breakPoints.laptop}) {
     display: flex;
@@ -19,10 +20,10 @@ export const BurgerStyled = styled.div`
   }
 
   div {
-    width: ${({ theme }) => theme.burger.lineWidth}px;
-    height: ${({ theme }) => theme.burger.lineHeight}px;
-    background-color: ${({ theme }) => theme.headerTextColor};
-    border-radius: ${({ theme }) => theme.burger.lineBorderRadius}px;
+    width: ${burger.lineWidth}px;
+    height: ${burger.lineHeight}px;
+    background-color: ${({ theme }) => theme.header.textColor};
+    border-radius: ${burger.lineBorderRadius}px;
     transform-origin: 1px;
     transition: all 0.3s linear;
 

@@ -1,13 +1,13 @@
+import { borderWidth, fontSizes, fontWeights, spacer } from '@styles/sizes';
 import styled from 'styled-components';
 
 export const ButtonStyled = styled.button`
-  padding: ${({ theme }) => theme.spacer * 2}px;
-  font-size: ${({ theme }) => theme.fontSizes.md}px;
-  font-weight: ${({ theme }) => theme.fontWeights.normal};
-  background-color: ${({ theme }) => theme.buttonBackgroundColor};
-  color: ${({ theme }) => theme.buttonTextColor};
-  border: ${({ theme }) =>
-      theme.currentTheme === 'dark' ? theme.borderWidth : 0}px
+  padding: ${spacer * 2}px;
+  font-size: ${fontSizes.md}px;
+  font-weight: ${fontWeights.normal};
+  background-color: ${({ theme }) => theme.button.backgroundColor};
+  color: ${({ theme }) => theme.button.textColor};
+  border: ${({ theme }) => (theme.currentTheme === 'dark' ? borderWidth : 0)}px
     solid ${({ theme }) => theme.borderColor};
   cursor: pointer;
 

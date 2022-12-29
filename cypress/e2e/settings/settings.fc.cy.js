@@ -13,9 +13,9 @@ describe('Settings FC e2e', () => {
   it('Theme select should work', () => {
     // Initial theme should be dark.
     cy.get('#mainLayout')
-      .then(($el) => $el.css('background-color')) // get color value
+      .then(($el) => $el.css('background-color'))
       .should((colorValue) => {
-        expect(color(colorValue).hex()).to.eq(themes.dark.background);
+        expect(color(colorValue).hex()).to.eq(themes.dark.bodyBackgroundColor);
       });
 
     // Select dark theme
@@ -24,7 +24,7 @@ describe('Settings FC e2e', () => {
     cy.get('#mainLayout')
       .then(($el) => $el.css('background-color'))
       .should((colorValue) => {
-        expect(color(colorValue).hex()).to.eq(themes.light.background);
+        expect(color(colorValue).hex()).to.eq(themes.light.bodyBackgroundColor);
       });
 
     // Select colorful theme
@@ -34,9 +34,11 @@ describe('Settings FC e2e', () => {
       .should('eq', 'colorful');
 
     cy.get('#mainLayout')
-      .then(($el) => $el.css('background-color')) // get color value
+      .then(($el) => $el.css('background-color'))
       .should((colorValue) => {
-        expect(color(colorValue).hex()).to.eq(themes.colorful.background);
+        expect(color(colorValue).hex()).to.eq(
+          themes.colorful.bodyBackgroundColor,
+        );
       });
   });
 });

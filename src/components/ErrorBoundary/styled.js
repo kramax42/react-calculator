@@ -1,3 +1,4 @@
+import { fontSizes } from '@styles/sizes';
 import styled from 'styled-components';
 
 export const ErrorBoundaryStyled = styled.div`
@@ -5,6 +6,6 @@ export const ErrorBoundaryStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${({ theme }) => theme.textColor};
-  font-size: ${({ theme }) => theme.fontSizes.xxl}px;
+  color: ${({ theme }) => theme.text.color};
+  font-size: ${fontSizes.xxl}px;
 `;

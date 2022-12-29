@@ -1,15 +1,16 @@
+import { fontSizes, headerHeight, spacer } from '@styles/sizes';
 import styled from 'styled-components';
 
 export const HeaderStyled = styled.div`
   display: flex;
-  height: ${({ theme }) => theme.headerHeight}px;
+  height: ${headerHeight}px;
   justify-content: space-between;
   align-items: center;
-  background-color: ${({ theme }) => theme.headerBackgroundColor};
-  color: ${({ theme }) => theme.headerTextColor};
-  padding: ${({ theme }) => theme.spacer * 4}px;
+  background-color: ${({ theme }) => theme.header.backgroundColor};
+  color: ${({ theme }) => theme.header.textColor};
+  padding: ${spacer * 4}px;
 `;
 
 export const HeaderLogo = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.xl}px;
+  font-size: ${fontSizes.xl}px;
 `;

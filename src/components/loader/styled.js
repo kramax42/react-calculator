@@ -1,3 +1,5 @@
+import { colors } from '@styles/colors';
+import { spacer } from '@styles/sizes';
 import styled, { keyframes } from 'styled-components';
 
 const rotate360 = keyframes`
@@ -10,15 +12,15 @@ const rotate360 = keyframes`
 `;
 
 export const Spinner = styled.div`
-  width: ${({ theme }) => theme.spacer * 8}px;
-  height: ${({ theme }) => theme.spacer * 8}px;
-  margin: ${({ theme }) => theme.spacer * 2}px auto;
+  width: ${spacer * 8}px;
+  height: ${spacer * 8}px;
+  margin: ${spacer * 2}px auto;
   animation: ${rotate360} 1s linear infinite;
   transform: translateZ(0);
   border-top: 3px solid ${({ theme }) => theme.textColor};
-  border-right: 3px solid ${({ theme }) => theme.colors.secondaryLight};
-  border-bottom: 3px solid ${({ theme }) => theme.colors.secondaryLight};
-  border-left: 3px solid ${({ theme }) => theme.textColor};
+  border-right: 3px solid ${colors.secondaryLight};
+  border-bottom: 3px solid ${colors.secondaryLight};
+  border-left: 3px solid ${({ theme }) => theme.text.color};
   background: transparent;
   border-radius: 50%;
 `;
