@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { breakPoints } from '@styles/break-points';
+import { transitionDuration } from '@styles/animation';
 import { navigationLink } from '@styles/components';
-import { fontSizes, fontWeights, margins, paddings } from '@styles/sizes';
+import { below } from '@styles/screens';
+import { fontSizes, fontWeight, spaces } from '@styles/sizes';
 
 export const NavigationLi = styled.li`
-  margin-left: ${margins.xl}px;
+  margin-left: ${spaces[3]}px;
   list-style-type: none;
   font-size: ${fontSizes.xl}px;
-  font-weight: ${fontWeights.normal};
+  font-weight: ${fontWeight[4]};
 
   &:hover {
     cursor: pointer;
@@ -21,9 +22,9 @@ export const NavigationStyled = styled.ul`
   flex-flow: row nowrap;
   list-style: none;
   li {
-    padding: ${paddings.xl}px ${paddings.md}px;
+    padding: ${spaces[3]}px ${spaces[2]}px;
   }
-  @media (max-width: ${breakPoints.laptop}) {
+  ${below.laptop`
     flex-flow: column nowrap;
     position: fixed;
     transform: ${({ isOpen }) =>
@@ -32,20 +33,20 @@ export const NavigationStyled = styled.ul`
     right: 0;
     height: 100%;
     width: 100%;
-    padding-top: ${paddings.xxxxl}px;
+    padding-top: ${spaces[7]}px;
     background-color: ${({ theme }) => theme.header.backgroundColor};
-    transition: transform 0.3s ease-in-out;
+    transition: transform ${transitionDuration}s ease-in-out;
     li {
       margin: 0 auto;
       color: ${({ theme }) => theme.header.textColor};
     }
-  }
+  `}
 `;
 
 export const NavigationLinkStyled = styled(NavLink)`
   position: relative;
   text-decoration: none;
-  font-size: ${fontSizes.xl}px;
+  font-size: ${fontSizes[4]}px;
   color: ${({ theme }) => theme.header.textColor};
   opacity: ${({ isActive }) => (isActive ? 1 : 0.7)};
 
@@ -60,7 +61,7 @@ export const NavigationLinkStyled = styled(NavLink)`
     left: 0;
     transform-origin: right;
     transform: scaleX(0);
-    transition: transform 0.3s ease-in-out;
+    transition: transform ${transitionDuration}s ease-in-out;
   }
 
   &:hover::before {

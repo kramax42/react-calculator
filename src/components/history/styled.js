@@ -1,44 +1,43 @@
 import styled from 'styled-components';
-import { transition } from '@styles/animation';
-import { breakPoints } from '@styles/break-points';
+import { transitionDuration } from '@styles/animation';
 import { history } from '@styles/components';
-import { fontSizes, fontWeights, margins, paddings } from '@styles/sizes';
+import { below } from '@styles/screens';
+import { fontSizes, fontWeight, spaces } from '@styles/sizes';
 
 export const HistoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   max-height: ${history.sizes.desktop.height}px;
-  padding: ${paddings.xl}px;
+  padding: ${spaces[3]}px;
   padding-left: 0;
   opacity: ${({ open }) => (open ? 1 : 0)};
-  transition: ${transition}s;
+  transition: ${transitionDuration}s;
 
-  @media (max-width: ${breakPoints.laptopL}) {
+  ${below.laptopL`
     max-height: ${history.sizes.laptopL.height}px;
-  }
+  `}
 
-  @media (max-width: ${breakPoints.laptop}) {
+  ${below.laptop`
     max-height: ${history.sizes.laptop.height}px;
-
-    padding: ${paddings.xl}px;
-  }
+    padding: ${spaces[3]}px;
+  `}
 `;
 
 export const HistoryTitle = styled.p`
-  margin: 0px auto ${margins.xl}px;
-  font-size: ${fontSizes.xxl}px;
+  margin: 0 auto ${spaces[3]}px;
+  font-size: ${fontSizes[5]}px;
   color: ${({ theme }) => theme.text.color};
 `;
 
 export const HistoryItems = styled.div`
   overflow-y: auto;
-  font-size: ${fontSizes.md}px;
+  font-size: ${fontSizes[3]}px;
   color: ${({ theme }) => theme.text.secondaryColor};
-  font-weight: ${fontWeights.thin};
+  font-weight: ${fontWeight[3]};
 `;
 
 export const HistoryItem = styled.div`
-  margin-top: ${margins.md}px;
+  margin-top: ${spaces[2]}px;
   word-wrap: break-all;
 `;

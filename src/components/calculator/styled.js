@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { breakPoints } from '@styles/break-points';
-import { borderWidth, headerHeight, paddings } from '@styles/sizes';
+import { below } from '@styles/screens';
+import { borderWidth, headerHeight, spaces } from '@styles/sizes';
 
 export const CalculatorWrapper = styled.div`
   display: flex;
@@ -8,18 +8,18 @@ export const CalculatorWrapper = styled.div`
   justify-content: flex-end;
   flex-direction: row;
 
-  @media (max-width: ${breakPoints.laptop}) {
+  ${below.laptop`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
+  `}
 `;
 
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: ${paddings.xxxl}px;
+  padding: ${spaces[4]}px;
 `;
 
 export const CalculatorColumn = styled(Column)`
@@ -27,21 +27,21 @@ export const CalculatorColumn = styled(Column)`
   min-height: calc(100vh - ${headerHeight * 1.1}px);
   align-items: flex-end;
   border-right: ${borderWidth}px solid ${({ theme }) => theme.borderColor};
-  padding-right: ${paddings.xxxl}px;
+  padding-right: ${spaces[4]}px;
 
-  @media (max-width: ${breakPoints.laptop}) {
+  ${below.laptop`
     height: max-content;
     min-height: 0;
     border-right: 0;
-  }
+  `}
 `;
 
 export const HistoryColumn = styled(Column)`
   height: 100%;
   & > div {
-    @media (max-width: ${breakPoints.laptop}) {
-      padding: ${paddings.xxl}px;
+    ${below.laptop`
+      padding: ${spaces[3]}px;
       border-top: 1px solid ${({ theme }) => theme.borderColor};
-    }
+    `}
   }
 `;

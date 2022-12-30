@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { fontSizes, margins, paddings } from '@styles/sizes';
+import { fontSizes, spaces } from '@styles/sizes';
 
 export const Title = styled.p`
-  margin: 0px auto ${margins.xl}px;
+  margin: 0 auto ${spaces[3]}px;
   text-align: center;
-  font-size: ${fontSizes.xxl}px;
+  font-size: ${fontSizes[5]}px;
   color: ${({ theme }) => theme.text.color};
 `;
 
@@ -13,6 +13,6 @@ export const ControlPanelStyled = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding: ${paddings.md}px ${paddings.xl}px;
-  gap: ${margins.xl}px;
+  padding: ${spaces[3]}px ${spaces[3]}px;
+  gap: ${spaces[3]}px;
 `;

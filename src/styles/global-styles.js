@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 
-import { spacer } from './sizes';
+import { scrollbar } from './components';
 
 export default createGlobalStyle`
   * {
@@ -13,13 +13,13 @@ export default createGlobalStyle`
 
     ::-webkit-scrollbar {
       background: ${({ theme }) => theme.scrollbar.backgroundColor};
-      border: ${spacer * 0.3}px solid ${({ theme }) =>
+      border: ${scrollbar.borderWidth}px solid ${({ theme }) =>
   theme.bodyBackgroundColor};
     }
 
     ::-webkit-scrollbar-thumb {
       background-color: ${({ theme }) => theme.scrollbar.thumbBackgroundColor};
-      border: ${spacer * 0.8}px solid transparent;
+      border: ${scrollbar.thumbBorderWidth}px solid transparent;
       background-clip: content-box;
     }
 

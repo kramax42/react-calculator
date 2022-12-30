@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { breakPoints } from '@styles/break-points';
 import { keypadButton } from '@styles/components';
-import { borderWidth, fontSizes, fontWeights, margins } from '@styles/sizes';
+import { below } from '@styles/screens';
+import { borderWidth, fontSizes, fontWeight, spaces } from '@styles/sizes';
 
 export const GridKeypad = styled.div`
   display: grid;
@@ -13,15 +13,20 @@ export const GridKeypad = styled.div`
 
   grid-template-rows: repeat(4, ${keypadButton.sizes.desktop.height}px);
   grid-template-columns: repeat(6, ${keypadButton.sizes.desktop.width}px);
-  margin-top: ${margins.md}px;
+  margin-top: ${spaces[2]}px;
   grid-gap: ${borderWidth}px;
 
-  @media (max-width: ${breakPoints.laptopL}) {
+  ${below.laptopL`
     grid-template-rows: repeat(4, ${keypadButton.sizes.laptopL.height}px);
     grid-template-columns: repeat(6, ${keypadButton.sizes.laptopL.width}px);
-  }
+  `}
 
-  @media (max-width: ${breakPoints.laptop}) {
+  ${below.laptopM`
+    grid-template-rows: repeat(4, ${keypadButton.sizes.laptopM.height}px);
+    grid-template-columns: repeat(6, ${keypadButton.sizes.laptopM.width}px);
+  `}
+
+  ${below.laptop`
     grid-template-areas:
       'plus   seven        eight   nine          backSpace'
       'minus  four         five    six           cleanEntry'
@@ -31,27 +36,27 @@ export const GridKeypad = styled.div`
 
     grid-template-rows: repeat(5, ${keypadButton.sizes.laptop.height}px);
     grid-template-columns: repeat(5, ${keypadButton.sizes.laptop.width}px);
-  }
+  `}
 
-  @media (max-width: ${breakPoints.tablet}) {
+  ${below.tablet`
     grid-template-rows: repeat(5, ${keypadButton.sizes.tablet.height}px);
     grid-template-columns: repeat(5, ${keypadButton.sizes.tablet.width}px);
-  }
+  `}
 
-  @media (max-width: ${breakPoints.mobileL}) {
+  ${below.mobileL`
     grid-template-rows: repeat(5, ${keypadButton.sizes.mobileL.height}px);
     grid-template-columns: repeat(5, ${keypadButton.sizes.mobileL.width}px);
-  }
+  `}
 
-  @media (max-width: ${breakPoints.mobileM}) {
+  ${below.mobileM`
     grid-template-rows: repeat(5, ${keypadButton.sizes.mobileM.height}px);
     grid-template-columns: repeat(5, ${keypadButton.sizes.mobileM.width}px);
-  }
+  `}
 
-  @media (max-width: ${breakPoints.mobileS}) {
+  ${below.mobileS`
     grid-template-rows: repeat(5, ${keypadButton.sizes.mobileS.height}px);
     grid-template-columns: repeat(5, ${keypadButton.sizes.mobileS.width}px);
-  }
+  `}
 `;
 
 export const KeypadButton = styled.button`
@@ -59,8 +64,8 @@ export const KeypadButton = styled.button`
   cursor: pointer;
   border: 0;
   outline: ${borderWidth}px solid ${({ theme }) => theme.borderColor};
-  font-size: ${fontSizes.xxl}px;
-  font-weight: ${fontWeights.normal};
+  font-size: ${fontSizes[5]}px;
+  font-weight: ${fontWeight[4]};
   color: ${({ theme }) => theme.keypad.textColor};
   background-color: ${({ theme }) => theme.keypad.backgroundColor};
   &:hover {

@@ -7,5 +7,5 @@ export const ErrorBoundaryStyled = styled.div`
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.text.color};
-  font-size: ${fontSizes.xxl}px;
+  font-size: ${fontSizes[4]}px;
 `;

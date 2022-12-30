@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { breakPoints } from '@styles/break-points';
 import { display } from '@styles/components';
+import { below, SCREEN_SIZES } from '@styles/screens';
 import { fontSizes } from '@styles/sizes';
 
 export const Entry = styled.div`
@@ -9,36 +9,20 @@ export const Entry = styled.div`
   word-wrap: normal;
   text-align: right;
   color: ${({ theme }) => theme.text.color};
-  font-size: ${fontSizes.xxxl}px;
+  font-size: ${fontSizes[5]}px;
 `;
 
 export const DisplayStyled = styled.div`
   width: ${display.sizes.desktop.width}px;
   word-wrap: normal;
 
-  @media (max-width: ${breakPoints.laptopL}) {
-    width: ${display.sizes.laptopL.width}px;
-  }
-
-  @media (max-width: ${breakPoints.laptop}) {
-    width: ${display.sizes.laptop.width}px;
-  }
-
-  @media (max-width: ${breakPoints.tablet}) {
-    width: ${display.sizes.tablet.width}px;
-  }
-
-  @media (max-width: ${breakPoints.mobileL}) {
-    width: ${display.sizes.mobileL.width}px;
-  }
-
-  @media (max-width: ${breakPoints.mobileM}) {
-    width: ${display.sizes.mobileM.width}px;
-  }
-
-  @media (max-width: ${breakPoints.mobileS}) {
-    width: ${display.sizes.mobileS.width}px;
-  }
+  ${Object.keys(SCREEN_SIZES).reduceRight((acc, screenSize) => {
+    return `${
+      acc +
+      below[screenSize]`
+        width: ${display.sizes[screenSize].width}px;`.join('')
+    }`;
+  }, '')}
 `;
 
 export const Expression = styled.div`
@@ -47,5 +31,5 @@ export const Expression = styled.div`
   text-align: right;
   word-wrap: break-all;
   color: ${({ theme }) => theme.text.secondaryColor};
-  font-size: ${fontSizes.xl}px;
+  font-size: ${fontSizes[4]}px;
 `;

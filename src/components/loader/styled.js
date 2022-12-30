@@ -1,6 +1,6 @@
 import styled, { keyframes } from 'styled-components';
 import { spinner } from '@styles/components';
-import { margins } from '@styles/sizes';
+import { spaces } from '@styles/sizes';
 
 const rotate360 = keyframes`
   from {
@@ -14,7 +14,7 @@ const rotate360 = keyframes`
 export const Spinner = styled.div`
   width: ${spinner.width}px;
   height: ${spinner.height}px;
-  margin: ${margins.xl}px auto;
+  margin: ${spaces[3]}px auto;
   animation: ${rotate360} 1s linear infinite;
   transform: translateZ(0);
   border-top: ${spinner.borderWidth}px solid ${({ theme }) => theme.text.color};

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { transition } from '@styles/animation';
-import { breakPoints } from '@styles/break-points';
+import { transitionDuration } from '@styles/animation';
 import { burger } from '@styles/components';
+import { below } from '@styles/screens';
 import { zIndexes } from '@styles/z-indexes';
 
 export const UpLine = styled.div``;
@@ -14,11 +14,11 @@ export const BurgerStyled = styled.div`
   width: ${burger.size}px;
   height: ${burger.size}px;
 
-  @media (max-width: ${breakPoints.laptop}) {
+  ${below.laptop`
     display: flex;
     justify-content: space-around;
     flex-flow: column nowrap;
-  }
+  `}
 
   div {
     width: ${burger.lineWidth}px;
@@ -26,7 +26,7 @@ export const BurgerStyled = styled.div`
     background-color: ${({ theme }) => theme.header.textColor};
     border-radius: ${burger.lineBorderRadius}px;
     transform-origin: 1px;
-    transition: all ${transition}s linear;
+    transition: all ${transitionDuration}s linear;
 
     &:nth-child(1) {
       transform: ${({ isOpen }) => (isOpen ? 'rotate(45deg)' : 'rotate(0)')};

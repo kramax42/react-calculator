@@ -1,14 +1,4 @@
 import { colors, darkColors, grayColors } from './colors';
-import { burger } from './components';
-import {
-  borderWidth,
-  fontSizes,
-  fontWeights,
-  headerHeight,
-  keypadButtonWidth,
-  spacer,
-} from './sizes';
-import { zIndexes } from './z-indexes';
 
 const defaultTheme = {
   bodyBackgroundColor: darkColors.dark900,
@@ -101,16 +91,4 @@ export const themes = {
   light: lightTheme,
   colorful: colorfulTheme,
   dark: darkTheme,
-};
-
-export const theme = {
-  colors,
-  fontSizes,
-  fontWeights,
-  spacer,
-  zIndexes,
-  burger,
-  headerHeight,
-  keypadButtonWidth,
-  borderWidth,
 };
