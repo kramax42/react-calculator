@@ -8,7 +8,7 @@ import { fontSizes, fontWeight, spaces } from '@styles/sizes';
 export const NavigationLi = styled.li`
   margin-left: ${spaces[3]}px;
   list-style-type: none;
-  font-size: ${fontSizes.xl}px;
+  font-size: ${fontSizes[3]}px;
   font-weight: ${fontWeight[4]};
 
   &:hover {
@@ -24,6 +24,7 @@ export const NavigationStyled = styled.ul`
   li {
     padding: ${spaces[3]}px ${spaces[2]}px;
   }
+
   ${below.laptop`
     flex-flow: column nowrap;
     position: fixed;
