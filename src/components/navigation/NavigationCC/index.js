@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
 import { routeLinks } from '@constants/routes';
@@ -9,7 +9,7 @@ import {
   NavigationStyled,
 } from '../styled';
 
-class NavigationCC extends Component {
+class NavigationCC extends PureComponent {
   render() {
     const { isOpen } = this.props;
     return (

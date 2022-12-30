@@ -1,7 +1,1 @@
-export const zIndexes = {
-  body: 100,
-  header: 200,
-  navigation: 300,
-  modal: 400,
-  tooltip: 500,
-};
+export const zIndexes = [100, 200, 300, 400, 500];

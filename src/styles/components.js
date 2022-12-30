@@ -1,6 +1,8 @@
 export const navigationLink = {
   bottomLineHeight: 2.8,
   bottomLineMargin: -9,
+  activeOpacity: 1,
+  inActiveOpacity: 0.7,
 };
 
 export const keypadButton = {
@@ -32,7 +34,8 @@ export const display = {
 export const history = {
   sizes: {
     laptop: { height: 500 },
-    laptopL: { height: 400 },
+    laptopM: { height: 370 },
+    laptopL: { height: 380 },
     desktop: { height: 600 },
   },
 };

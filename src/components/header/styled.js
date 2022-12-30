@@ -12,5 +12,5 @@ export const HeaderStyled = styled.div`
 `;
 
 export const HeaderLogo = styled.p`
-  font-size: ${fontSizes[2]}px;
+  font-size: ${fontSizes[4]}px;
 `;

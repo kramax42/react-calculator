@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
 import { routeLinks } from '@constants/routes';
@@ -25,4 +25,4 @@ NavigationFC.propTypes = {
   isOpen: PropTypes.bool.isRequired,
 };
 
-export const Navigation = NavigationFC;
+export const Navigation = memo(NavigationFC);

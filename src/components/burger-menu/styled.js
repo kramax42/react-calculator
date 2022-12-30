@@ -10,7 +10,7 @@ export const DownLine = styled.div``;
 
 export const BurgerStyled = styled.div`
   display: none;
-  z-index: ${zIndexes.navigation};
+  z-index: ${zIndexes[2]};
   width: ${burger.size}px;
   height: ${burger.size}px;
 

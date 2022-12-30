@@ -33,29 +33,23 @@ const storage =
     ? createWebStorage('local')
     : createNoopStorage();
 
-// import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
-
 const rootReducer = combineReducers({
   theme: themeReducer,
   calculator: calculatorReducer,
 });
 
-// react-persist configs
 const persistConfig = {
   key: 'root',
   storage,
 };
 
-// react-persist configs
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export function makeStore() {
   return configureStore({
     reducer: persistedReducer,
     devTools: true,
-    middleware: (
-      getDefaultMiddleware, // react-persist and redux-toolkit configs
-    ) =>
+    middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: {
           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
@@ -66,5 +60,4 @@ export function makeStore() {
 
 export const store = makeStore();
 
-// react-persist configs
 export const persistor = persistStore(store);

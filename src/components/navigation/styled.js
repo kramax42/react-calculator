@@ -48,20 +48,22 @@ export const NavigationLinkStyled = styled(NavLink)`
   text-decoration: none;
   font-size: ${fontSizes[4]}px;
   color: ${({ theme }) => theme.header.textColor};
-  opacity: ${({ isActive }) => (isActive ? 1 : 0.7)};
+  opacity: ${({ isActive }) =>
+    isActive ? navigationLink.activeOpacity : navigationLink.inActiveOpacity};
 
   &::before {
     content: '';
     position: absolute;
     width: 100%;
     height: ${navigationLink.bottomLineHeight}px;
-    background-color: ${({ theme }) => theme.header.textColor};
-    opacity: ${({ isActive }) => (isActive ? 1 : 0.7)};
     bottom: ${navigationLink.bottomLineMargin}px;
     left: 0;
     transform-origin: right;
     transform: scaleX(0);
     transition: transform ${transitionDuration}s ease-in-out;
+    background-color: ${({ theme }) => theme.header.textColor};
+    opacity: ${({ isActive }) =>
+      isActive ? navigationLink.activeOpacity : navigationLink.inActiveOpacity};
   }
 
   &:hover::before {
@@ -72,6 +74,6 @@ export const NavigationLinkStyled = styled(NavLink)`
   &:active,
   &:hover,
   &:focus {
-    opacity: 1;
+    opacity: ${navigationLink.activeOpacity};
   }
 `;

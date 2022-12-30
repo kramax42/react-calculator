@@ -18,6 +18,10 @@ export const HistoryWrapper = styled.div`
     max-height: ${history.sizes.laptopL.height}px;
   `}
 
+  ${below.laptopM`
+    max-height: ${history.sizes.laptopM.height}px;
+  `}
+
   ${below.laptop`
     max-height: ${history.sizes.laptop.height}px;
     padding: ${spaces[3]}px;
