@@ -18,9 +18,10 @@ class BurgerMenuCC extends Component {
 
   render() {
     const { isOpen } = this.state;
+    const { onClickHandler } = this;
     return (
       <>
-        <BurgerStyled id="burger" isOpen={isOpen} onClick={this.onClickHandler}>
+        <BurgerStyled id="burger" isOpen={isOpen} onClick={onClickHandler}>
           <UpLine />
           <MiddleLine />
           <DownLine />

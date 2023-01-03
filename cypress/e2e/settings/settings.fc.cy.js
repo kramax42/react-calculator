@@ -1,6 +1,5 @@
+import { themes } from '@styles/themes';
 import color from 'onecolor';
-
-import { themes } from '../../../src/styles/themes';
 
 describe('Settings FC e2e', () => {
   beforeEach(() => {

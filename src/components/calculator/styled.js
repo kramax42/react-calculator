@@ -24,7 +24,7 @@ export const Column = styled.div`
 
 export const CalculatorColumn = styled(Column)`
   width: min-content;
-  min-height: calc(100vh - ${headerHeight * 1.1}px);
+  min-height: calc(100vh - ${headerHeight}px);
   align-items: flex-end;
   border-right: ${borderWidth}px solid ${({ theme }) => theme.borderColor};
   padding-right: ${spaces[4]}px;

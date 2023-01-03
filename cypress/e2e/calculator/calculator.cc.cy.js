@@ -1,12 +1,12 @@
-import { CALCULATOR_BUTTONS } from '../../../src/constants/calculator';
-import { getKeyByValue } from '../../../src/utils/get-key-by-value';
+import { CALCULATOR_BUTTONS } from '@constants/calculator';
+import { getKeyByValue } from '@utils/get-key-by-value';
 
 import { expressions, expressionsSequence } from './expressions';
 
 describe('Home page CC e2e', () => {
   it('keypad buttons should exist', () => {
     cy.visit('/home-cc');
-    Object.keys(CALCULATOR_BUTTONS).map((keypadKey) => {
+    Object.keys(CALCULATOR_BUTTONS).forEach((keypadKey) => {
       cy.get(`button[data-keypad-value="${keypadKey}"]`).should(
         'have.text',
         CALCULATOR_BUTTONS[keypadKey],
@@ -16,7 +16,7 @@ describe('Home page CC e2e', () => {
 
   it('display component should contain correct value after click on keypad buttons', () => {
     let expectedDisplayValue = '';
-    for (let i = 9; i >= 0; i--) {
+    for (let i = 9; i >= 0; i -= 1) {
       expectedDisplayValue += i.toString();
       const keypadValue = getKeyByValue(CALCULATOR_BUTTONS, i.toString());
       cy.get(`button[data-keypad-value="${keypadValue}"]`).click();
@@ -27,21 +27,20 @@ describe('Home page CC e2e', () => {
 
   context('calculator functionality and history', () => {
     it('entry should display correct number after calculation', () => {
-      for (const { commands, equals } of expressions) {
-        // Clean display and entry.
+      expressions.forEach(({ commands, equals }) => {
         cy.get(`button[data-keypad-value="clean"]`).click();
 
-        for (const commandValue of commands) {
+        commands.forEach((commandValue) => {
           const keypadValue = getKeyByValue(CALCULATOR_BUTTONS, commandValue);
           cy.get(`button[data-keypad-value="${keypadValue}"]`).click();
-        }
+        });
 
         cy.get('#entryDisplay').contains(equals);
-      }
+      });
     });
 
     it('history should contain correct values', () => {
-      for (let i = 0; i < expressions.length; ++i) {
+      for (let i = 0; i < expressions.length; i += 1) {
         const { expression, equals } = expressions[i];
         const expectedHistoryItem = `${i + 1}) ${expression} = ${equals}`;
 
@@ -61,10 +60,7 @@ describe('Home page CC e2e', () => {
     it('history should be able to toggle visibility', () => {
       cy.get('#historyTitle').should('exist').should('have.text', 'History');
 
-      cy.get('#toggleHistoryVisibility')
-        // .should('have.text', 'Hide History')
-        .click();
-      // .should('have.text', 'Show History');
+      cy.get('#toggleHistoryVisibility').click();
 
       cy.get('#historyTitle').should('not.exist');
     });
@@ -79,17 +75,16 @@ describe('Home page CC e2e', () => {
     // user click on 3
     // entry shoul be 3 (not Infinity3)
     it('entry should display correct number in corner cases (Infinity, NaN)', () => {
-      // Clean display and entry.
       cy.get(`button[data-keypad-value="clean"]`).click();
 
-      for (const { commands, equals } of expressionsSequence) {
-        for (const commandValue of commands) {
+      expressionsSequence.forEach(({ commands, equals }) => {
+        commands.forEach((commandValue) => {
           const keypadValue = getKeyByValue(CALCULATOR_BUTTONS, commandValue);
           cy.get(`button[data-keypad-value="${keypadValue}"]`).click();
-        }
+        });
 
         cy.get('#entryDisplay').contains(equals);
-      }
+      });
     });
   });
 });

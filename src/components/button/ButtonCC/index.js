@@ -5,8 +5,9 @@ import { ButtonStyled } from '../styled';
 
 class ButtonCC extends Component {
   render() {
-    const { children } = this.props;
-    return <ButtonStyled {...this.props}>{children}</ButtonStyled>;
+    const { props } = this;
+    const { children } = props;
+    return <ButtonStyled {...props}>{children}</ButtonStyled>;
   }
 }
 

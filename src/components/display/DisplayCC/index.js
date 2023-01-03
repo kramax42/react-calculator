@@ -16,14 +16,9 @@ class DisplayCC extends PureComponent {
   }
 }
 
-DisplayCC.defaultProps = {
-  entry: '0',
-  expression: '0',
-};
-
 DisplayCC.propTypes = {
-  entry: PropTypes.string,
-  expression: PropTypes.string,
+  entry: PropTypes.string.isRequired,
+  expression: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => {
