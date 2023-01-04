@@ -40,15 +40,14 @@ describe('Home page CC e2e', () => {
     });
 
     it('history should contain correct values', () => {
-      for (let i = 0; i < expressions.length; i += 1) {
-        const { expression, equals } = expressions[i];
+      expressions.forEach(({ expression, equals }, i) => {
         const expectedHistoryItem = `${i + 1}) ${expression} = ${equals}`;
 
         cy.get(`div[data-history-item-index="${i}"]`).should(
           'have.text',
           expectedHistoryItem,
         );
-      }
+      });
     });
 
     it('history should be empty after click on Clear History button', () => {
