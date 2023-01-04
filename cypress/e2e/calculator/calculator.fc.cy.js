@@ -65,15 +65,10 @@ describe('Home page FC e2e', () => {
       cy.get('#historyTitle').should('not.exist');
     });
 
-    // Expressions for test what contains entry
-    // when last entry value = Infinity
-    // and user try to input new value without clicking
-    // on removing buttons
-
     // Example:
     // entry = Infinity
     // user click on 3
-    // entry shoul be 3 (not Infinity3)
+    // entry should be 3 (not Infinity3)
     it('entry should display correct number in corner cases (Infinity, NaN)', () => {
       cy.get(`button[data-keypad-value="clean"]`).click();
 
