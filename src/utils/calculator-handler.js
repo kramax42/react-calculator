@@ -2,34 +2,52 @@ import { CALCULATOR_BUTTONS, KEYPAD_OPERATORS } from '@constants/calculator';
 import { calculateExpression } from '@utils/expression-parser';
 
 const operators = Object.values(KEYPAD_OPERATORS).join('');
-const maxEntryLength = 16;
 
 const toFullWideNumberString = (str) => {
+  if (str === '') {
+    return '';
+  }
+
+  // Using cast entry to number for converting .3 to 0.3
   const num = Number(str);
   return num !== Infinity && num !== -Infinity
     ? num.toLocaleString('en-US', { useGrouping: false })
     : String(num);
 };
 
-const getCalculatorOperations = ({ entry, expression, newState: state }) => {
-  const newState = { ...state };
+const isValuesValidForHistory = (newExpression, newResult) => {
+  return Boolean(
+    newExpression !== '' &&
+      newExpression !== newResult &&
+      Number(newResult) !== Infinity &&
+      !Number.isNaN(Number(newResult)),
+  );
+};
+
+const isLastExpressionCharOperator = (expression, entry) => {
+  return Boolean(
+    operators.includes(expression.at(-1)) &&
+      expression.at(-1) !== CALCULATOR_BUTTONS.leftBracket &&
+      expression.at(-1) !== CALCULATOR_BUTTONS.rightBracket &&
+      entry === '',
+  );
+};
+
+const isLeftBracketPrecedingOperator = (expression, entry) => {
+  return Boolean(
+    expression.at(-1) === CALCULATOR_BUTTONS.leftBracket && entry === '',
+  );
+};
+
+const getCalculatorOperations = ({ entry, expression }) => {
+  const newState = { entry, expression, newHistoryItems: [] };
+
   const calculatorOperations = {
     [CALCULATOR_BUTTONS.equals]: () => {
-      // Using cast entry to number for converting .3 to 0.3
-      const newExpression =
-        expression + (entry !== '' ? toFullWideNumberString(entry) : '');
+      const newExpression = expression + toFullWideNumberString(entry);
       const newResult = calculateExpression(newExpression);
 
-      const isDefiniteValues = (newExpression, newResult) => {
-        return Boolean(
-          newExpression !== '' &&
-            newExpression !== newResult &&
-            Number(newResult) !== Infinity &&
-            !Number.isNaN(Number(newResult)),
-        );
-      };
-
-      if (isDefiniteValues(newExpression, newResult)) {
+      if (isValuesValidForHistory(newExpression, newResult)) {
         newState.newHistoryItems.push({
           calculatedExpression: `${newExpression} = ${newResult}`,
         });
@@ -91,21 +109,6 @@ const getCalculatorOperations = ({ entry, expression, newState: state }) => {
       return newState;
     },
     operator: (keypadValue) => {
-      const isLastExpressionCharOperator = (expression, entry) => {
-        return Boolean(
-          operators.includes(expression.at(-1)) &&
-            expression.at(-1) !== CALCULATOR_BUTTONS.leftBracket &&
-            expression.at(-1) !== CALCULATOR_BUTTONS.rightBracket &&
-            entry === '',
-        );
-      };
-
-      const isLeftBracketPrecedingOperator = (expression, entry) => {
-        return Boolean(
-          expression.at(-1) === CALCULATOR_BUTTONS.leftBracket && entry === '',
-        );
-      };
-
       if (isLastExpressionCharOperator(expression, entry)) {
         newState.expression = expression.slice(0, -1) + keypadValue;
       } else if (isLeftBracketPrecedingOperator(expression, entry)) {
@@ -130,25 +133,25 @@ const getCalculatorOperations = ({ entry, expression, newState: state }) => {
   return calculatorOperations;
 };
 
+const isIncorrectEntry = (entry) => {
+  return (
+    Number(entry) === Infinity ||
+    Number(entry) === -Infinity ||
+    (Number.isNaN(entry) && entry !== CALCULATOR_BUTTONS.dot)
+  );
+};
+
 export const calculatorHandler = ({
   keypadValue,
   entry: prevEntry,
   expression,
 }) => {
-  const isIncorrectEntry = (entry) => {
-    return (
-      Number(entry) === Infinity ||
-      Number(entry) === -Infinity ||
-      (Number.isNaN(entry) && entry !== CALCULATOR_BUTTONS.dot)
-    );
-  };
-
   let entry = prevEntry;
   if (isIncorrectEntry(entry)) {
     entry = '';
   }
 
-  let newState = {
+  const state = {
     entry,
     expression,
     newHistoryItems: [],
@@ -157,7 +160,6 @@ export const calculatorHandler = ({
   const calculatorOperations = getCalculatorOperations({
     entry,
     expression,
-    newState,
   });
 
   const isNonMathOperation = (keypadValue) =>
@@ -166,14 +168,21 @@ export const calculatorHandler = ({
   const isMathOperator = (keypadValue) => operators.includes(keypadValue);
 
   if (isNonMathOperation(keypadValue)) {
-    const calulatorOperation = calculatorOperations[keypadValue];
-    newState = calulatorOperation(keypadValue);
-  } else if (isMathOperator(keypadValue)) {
-    const operatorOperation = calculatorOperations.operator;
-    newState = operatorOperation(keypadValue);
-  } else if (entry.length < maxEntryLength) {
-    newState.entry = (entry === '0' ? '' : entry) + keypadValue;
+    const getNewStateByNonMathOperation = calculatorOperations[keypadValue];
+    return getNewStateByNonMathOperation(keypadValue);
   }
 
-  return newState;
+  if (isMathOperator(keypadValue)) {
+    const getNewStateByMathOperation = calculatorOperations.operator;
+    return getNewStateByMathOperation(keypadValue);
+  }
+
+  const MAX_ENTRY_LENGTH = 16;
+  if (entry.length < MAX_ENTRY_LENGTH) {
+    const newState = { ...state };
+    newState.entry = (entry === '0' ? '' : entry) + keypadValue;
+    return newState;
+  }
+
+  return state;
 };
