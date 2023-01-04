@@ -15,12 +15,12 @@ const toFullWideNumberString = (str) => {
     : String(num);
 };
 
-const isValuesValidForHistory = (newExpression, newResult) => {
+const isValuesValidForHistory = (expression, result) => {
   return Boolean(
-    newExpression !== '' &&
-      newExpression !== newResult &&
-      Number(newResult) !== Infinity &&
-      !Number.isNaN(Number(newResult)),
+    expression !== '' &&
+      expression !== result &&
+      Number(result) !== Infinity &&
+      !Number.isNaN(Number(result)),
   );
 };
 
@@ -151,12 +151,6 @@ export const calculatorHandler = ({
     entry = '';
   }
 
-  const state = {
-    entry,
-    expression,
-    newHistoryItems: [],
-  };
-
   const calculatorOperations = getCalculatorOperations({
     entry,
     expression,
@@ -177,11 +171,18 @@ export const calculatorHandler = ({
     return getNewStateByMathOperation(keypadValue);
   }
 
+  const state = {
+    entry,
+    expression,
+    newHistoryItems: [],
+  };
+
   const MAX_ENTRY_LENGTH = 16;
   if (entry.length < MAX_ENTRY_LENGTH) {
-    const newState = { ...state };
-    newState.entry = (entry === '0' ? '' : entry) + keypadValue;
-    return newState;
+    return {
+      ...state,
+      entry: (entry === '0' ? '' : entry) + keypadValue,
+    };
   }
 
   return state;
