@@ -171,7 +171,7 @@ export const calculatorHandler = ({
     return getNewStateByMathOperation(keypadValue);
   }
 
-  const state = {
+  const newState = {
     entry,
     expression,
     newHistoryItems: [],
@@ -180,10 +180,10 @@ export const calculatorHandler = ({
   const MAX_ENTRY_LENGTH = 16;
   if (entry.length < MAX_ENTRY_LENGTH) {
     return {
-      ...state,
+      ...newState,
       entry: (entry === '0' ? '' : entry) + keypadValue,
     };
   }
 
-  return state;
+  return newState;
 };
