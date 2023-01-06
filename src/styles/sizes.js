@@ -1,5 +1,4 @@
 export const headerHeight = 50;
-export const keypadButtonWidth = 120;
 export const borderWidth = 1.4;
 
 export const spaces = [0, 4, 8, 16, 32, 64, 128, 158, 256, 280];
